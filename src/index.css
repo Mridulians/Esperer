@@ -9,7 +9,8 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Previous font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+  font-family: 'Poppins', Arial, sans-serif;
   color: #16232a;
   background: #ffffff;
   -webkit-font-smoothing: antialiased;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   logo,
   heroWoman,
@@ -10,8 +10,15 @@ import {
   insightMicroscope,
 } from "./assets/images.js";
 import Woman from "./assets/woman.png";
-import AboutUsImage from "./assets/about_us_img.png";
 import MapImg from "./assets/map_img.png";
+import nutritionLogo from "./assets/esperer_nutrition.jpeg";
+import bioResearchLogo from "./assets/Esperer_bioresearch.jpeg";
+import healthVoithoLogo from "./assets/health_voitho.jpeg";
+import saltLickLogo from "./assets/salt_lick.jpeg";
+import breakthroughPatient from "./assets/breakthrough_01_patient.png";
+import breakthroughNutraIq from "./assets/breakthrough_02_nutra_iq.png";
+import FounderImg from "./assets/founder_img.jpeg";
+import "./assets/esperer-globe.js";
 import "./App.css";
 
 /* ---------- Icons (inline SVG, thin-line style) ---------- */
@@ -298,24 +305,28 @@ const continuumSteps = [
     icon: <IconShield />,
     title: "Prevention &\nEarly Detection",
     sub: "Salt Lick",
+    logo: saltLickLogo,
   },
   {
     num: "02",
     icon: <IconDNA />,
     title: "Treatment",
     sub: "Esperer BioResearch",
+    logo: bioResearchLogo,
   },
   {
     num: "03",
     icon: <IconSprout />,
     title: "Molecular\nNutrition",
     sub: "Esperer Nutrition",
+    logo: nutritionLogo,
   },
   {
     num: "04",
     icon: <IconChip />,
     title: "Technology",
     sub: "Health Voitho\nTechnologies",
+    logo: healthVoithoLogo,
   },
 ];
 
@@ -364,11 +375,65 @@ const globalStats = [
   },
 ];
 
+const glanceStats = [
+  {
+    icon: <IconGlobe />,
+    title: "12+ Countries",
+    text: "Global footprint across regulated markets",
+  },
+  {
+    icon: <IconShield />,
+    title: "6 Global Patents",
+    text: "In oncology and molecular nutrition",
+  },
+  {
+    icon: <IconFlask />,
+    title: "World's First",
+    text: "Stage-specific onco-nutrition therapy",
+  },
+  {
+    icon: <IconMonitor />,
+    title: "1M+ Dosages",
+    text: "Delivered to patients and growing",
+  },
+  {
+    icon: <IconTarget />,
+    title: "Multicentre Trials",
+    text: "Validated across geographies",
+  },
+  {
+    icon: <IconDNA />,
+    title: "Only Therapy of Its Kind",
+    text: "Trialled on a real-world population",
+  },
+  {
+    icon: <IconMapPin />,
+    title: "Multi-Country Registration",
+    text: "Under respective Ministries of Health",
+  },
+  {
+    icon: <IconUsers />,
+    title: "Institutional Trust",
+    text: "AIIMS · ICMR · Apollo · Fortis",
+  },
+  {
+    icon: <IconLaurel />,
+    title: "Global Recognition",
+    text: "Multiple awards for innovation",
+  },
+  {
+    icon: <IconCup />,
+    title: "USFDA-Affirmed",
+    text: "Manufacturing facility",
+  },
+];
+
 const businessData = [
   {
     id: "nutrition",
     number: "01",
     name: "Esperer Nutrition",
+    logo: nutritionLogo,
     icon: <IconCup />,
     description:
       "Globally patented nutrition therapy that works alongside cancer treatment.",
@@ -378,6 +443,7 @@ const businessData = [
     id: "bioresearch",
     number: "02",
     name: "Esperer BioResearch",
+    logo: bioResearchLogo,
     icon: <IconFlask />,
     description:
       "Bringing innovative anti-cancer drugs to the patients who need them.",
@@ -387,6 +453,7 @@ const businessData = [
     id: "technologies",
     number: "03",
     name: "Health Voitho Technologies",
+    logo: healthVoithoLogo,
     icon: <IconMonitor />,
     description:
       "Medtech — medical devices, technology and machine learning applied to healthcare.",
@@ -396,9 +463,41 @@ const businessData = [
     id: "saltlick",
     number: "04",
     name: "Salt Lick",
+    logo: saltLickLogo,
     icon: <IconShield />,
     description: "AI-enabled cancer risk assessment and prevention platform.",
     headline: "Early risk detection and prevention powered by AI.",
+  },
+];
+
+const showcaseBusinesses = [
+  {
+    name: "Esperer Nutrition",
+    logo: nutritionLogo,
+    headline: "Treatment Works. Nutrition Is What Lets It Keep Working.",
+    description:
+      "The world's first stage- and condition-specific onco-nutrition therapy, globally patented — because the body carrying the treatment deserves as much science as the treatment itself.",
+  },
+  {
+    name: "Esperer BioResearch",
+    logo: bioResearchLogo,
+    headline: "Science That Doesn't Stop At Discovery.",
+    description:
+      "From research to real medicine — advancing the innovative drugs used directly in the treatment of cancer.",
+  },
+  {
+    name: "Health Voitho Technologies",
+    logo: healthVoithoLogo,
+    headline: "Where Machine Intelligence Meets The Fight Against Cancer.",
+    description:
+      "The infrastructure behind better cancer care — devices and applied ML that make risk assessment, detection and monitoring sharper across the entire journey.",
+  },
+  {
+    name: "Salt Lick Healthcare",
+    logo: saltLickLogo,
+    headline: "Cancer, Caught Early Enough, Is Often Cancer That Can Be Cured.",
+    description:
+      "Patented risk assessment through simple screening — identifying cancer risk well before it becomes cancer to treat.",
   },
 ];
 
@@ -436,9 +535,35 @@ function AnimatedNumber({ value, suffix = "", duration = 1200 }) {
   );
 }
 
+function EspererGlobe() {
+  const globeRef = useRef(null);
+
+  useEffect(() => {
+    if (!globeRef.current || typeof window.EspererGlobe !== "function") {
+      return undefined;
+    }
+
+    const globe = window.EspererGlobe(globeRef.current, {
+      nodes: 340,
+      dot: "#0b2e34",
+      line: "22,58,64",
+      halo: "20,182,176",
+      blobs: true,
+      spin: 0.00013,
+      parallax: true,
+    });
+
+    return () => globe.destroy();
+  }, []);
+
+  return <div ref={globeRef} className="esperer-globe" aria-hidden="true" />;
+}
+
 function App() {
   const [selectedBusinessId, setSelectedBusinessId] = useState("nutrition");
   const [rotation, setRotation] = useState(0);
+  const [showcaseIndex, setShowcaseIndex] = useState(0);
+  const [showcasePaused, setShowcasePaused] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -471,6 +596,14 @@ function App() {
 
     setRotation((previous) => previous + delta);
     setSelectedBusinessId(businessId);
+  };
+
+  const changeShowcaseSlide = (direction) => {
+    setShowcaseIndex(
+      (currentIndex) =>
+        (currentIndex + direction + showcaseBusinesses.length) %
+        showcaseBusinesses.length,
+    );
   };
 
   const handleNavClick = (e, sectionId) => {
@@ -508,6 +641,18 @@ function App() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (showcasePaused) {
+      return undefined;
+    }
+
+    const autoplayId = window.setInterval(() => {
+      changeShowcaseSlide(1);
+    }, 3000);
+
+    return () => window.clearInterval(autoplayId);
+  }, [showcasePaused]);
 
   return (
     <div className="page">
@@ -588,14 +733,88 @@ function App() {
           </div>
         </div>
         <div className="hero-image">
-          <img src={Woman} alt="Woman looking forward with hope" />
+          <EspererGlobe />
+        </div>
+      </section>
+
+      {/* Business showcase */}
+      <section className="business-showcase" aria-label="Where we operate">
+        <div className="showcase-heading">
+          <span className="eyebrow eyebrow-orange">WHERE WE OPERATE</span>
+          <h2>
+            The frontiers of cancer care
+            <br />
+            Esperer Group is redefining.
+          </h2>
+        </div>
+        <div className="showcase-glow" aria-hidden="true" />
+        <div
+          className="showcase-viewport"
+          aria-live="polite"
+          onMouseEnter={() => setShowcasePaused(true)}
+          onMouseLeave={() => setShowcasePaused(false)}
+        >
+          <div
+            className="showcase-track"
+            style={{ transform: `translateX(-${showcaseIndex * 100}%)` }}
+          >
+            {showcaseBusinesses.map((business) => (
+              <article className="showcase-slide" key={business.name}>
+                <div className="showcase-logo">
+                  <img src={business.logo} alt={`${business.name} logo`} />
+                </div>
+                <p className="showcase-name">{business.name}</p>
+                <h3>{business.headline}</h3>
+                <p className="showcase-description">{business.description}</p>
+                <a href="#businesses" className="showcase-cta">
+                  Explore this space <IconArrowRight />
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="showcase-controls">
+          <button
+            type="button"
+            className="showcase-arrow"
+            onClick={() => changeShowcaseSlide(-1)}
+            aria-label="Previous business"
+          >
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+          <div className="showcase-counter">
+            <span>{String(showcaseIndex + 1).padStart(2, "0")}</span>
+            <span className="showcase-counter-divider">/</span>
+            <span>04</span>
+          </div>
+          <div className="showcase-dots" role="tablist" aria-label="Businesses">
+            {showcaseBusinesses.map((business, index) => (
+              <button
+                type="button"
+                role="tab"
+                key={business.name}
+                aria-label={`Show ${business.name}`}
+                aria-selected={showcaseIndex === index}
+                className={showcaseIndex === index ? "is-active" : ""}
+                onClick={() => setShowcaseIndex(index)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className="showcase-arrow"
+            onClick={() => changeShowcaseSlide(1)}
+            aria-label="Next business"
+          >
+            <span aria-hidden="true">&#8594;</span>
+          </button>
         </div>
       </section>
 
       {/* About */}
       <section className="about" id="about">
         <div className="about-image">
-          <img src={AboutUsImage} alt="Esperer Group campus" />
+          <img src={Woman} alt="Woman looking forward with hope" />
         </div>
         <div className="about-copy">
           <span className="eyebrow eyebrow-orange">ABOUT ESPERER GROUP</span>
@@ -638,6 +857,117 @@ function App() {
         </div>
       </section>
 
+      {/* Breakthroughs */}
+      <section className="breakthroughs" aria-labelledby="breakthroughs-title">
+        <div className="breakthroughs-heading">
+          <span className="eyebrow eyebrow-teal">OUR BREAKTHROUGHS</span>
+          <h2 id="breakthroughs-title">
+            Two breakthroughs. One discipline. Zero guesswork.
+          </h2>
+          <p>
+            Developed within Esperer Nutrition, these two pioneering innovations
+            are redefining how nutrition supports cancer treatment — with
+            science, precision and purpose.
+          </p>
+        </div>
+
+        <div className="breakthrough-grid">
+          <article className="breakthrough-card">
+            <div className="breakthrough-card-main">
+              <div className="breakthrough-copy">
+                <div className="breakthrough-mark">
+                  <IconDNA />
+                </div>
+                <span className="breakthrough-label">BREAKTHROUGH 01</span>
+                <h3>Cancer-specific nutritional therapy</h3>
+                <span className="breakthrough-rule" />
+                <p>
+                  The world’s first stage- and condition-specific onco-nutrition
+                  therapy — developed and validated as a clinical intervention
+                  to work alongside primary treatment and help it reach its
+                  optimal outcome.
+                </p>
+              </div>
+              <img
+                src={breakthroughPatient}
+                alt="Patient benefiting from nutritional therapy"
+              />
+            </div>
+            <div className="breakthrough-features">
+              <span>Stage &amp; condition specific</span>
+              <span>Clinically validated intervention</span>
+              <span>Works alongside cancer treatment</span>
+            </div>
+            <a href="#businesses" className="btn btn-teal breakthrough-button">
+              Explore EON Therapy <IconArrowRight />
+            </a>
+          </article>
+
+          <article className="breakthrough-card">
+            <div className="breakthrough-card-main">
+              <div className="breakthrough-copy">
+                <div className="breakthrough-mark">
+                  <IconChip />
+                </div>
+                <span className="breakthrough-label">BREAKTHROUGH 02</span>
+                <h3>AI-powered nutritional assessment protocol</h3>
+                <span className="breakthrough-rule" />
+                <p>
+                  The world’s first AI-powered nutritional assessment protocol —
+                  determining, with clinical precision, exactly what a patient’s
+                  body requires at each stage of treatment.
+                </p>
+              </div>
+              <img
+                src={breakthroughNutraIq}
+                alt="Nutra-IQ nutritional assessment interface"
+              />
+            </div>
+            <div className="breakthrough-features">
+              <span>AI-powered precision</span>
+              <span>Personalised to stage of treatment</span>
+              <span>Early risk detection &amp; better outcomes</span>
+            </div>
+            <a href="#businesses" className="btn btn-teal breakthrough-button">
+              Explore Nutra-IQ <IconArrowRight />
+            </a>
+          </article>
+        </div>
+
+        <div className="breakthrough-note">
+          <IconShield />
+          <p>
+            Both breakthroughs are backed by clinical research, globally
+            patented, and aligned with international nutrition guidelines —
+            because every decision should be driven by evidence, not assumption.
+          </p>
+          <a href="#foundation" className="link-arrow teal">
+            Learn more about our science <IconArrowRight />
+          </a>
+        </div>
+      </section>
+
+      {/* Esperer at a glance */}
+      <section className="glance" aria-labelledby="glance-title">
+        <div className="glance-inner">
+          <div className="glance-heading">
+            <span className="eyebrow eyebrow-orange">ESPERER AT A GLANCE</span>
+            <h2 id="glance-title">Credibility, at a glance.</h2>
+          </div>
+          <div className="glance-grid">
+            {glanceStats.map((stat) => (
+              <article className="glance-item" key={stat.title}>
+                <div className="glance-icon" aria-hidden="true">
+                  {stat.icon}
+                </div>
+                <h3>{stat.title}</h3>
+                <p>{stat.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Continuum of care */}
       <section className="continuum" id="continuum">
         <div className="continuum-left">
@@ -648,36 +978,34 @@ function App() {
             addressed by a dedicated Esperer business.
           </h2>
           <div className="continuum-steps">
-            {continuumSteps.map((step, i) => (
-              <>
-                <div className="continuum-step" key={step.num}>
-                  <div className="step-top">
-                    <span className="step-num">{step.num}</span>
-                    <span className="step-icon">{step.icon}</span>
-                  </div>
-                  <p className="step-title">
-                    {step.title.split("\n").map((line, idx) => (
-                      <span key={idx}>
-                        {line}
-                        <br />
-                      </span>
-                    ))}
-                  </p>
-                  <p className="step-sub">
+            {continuumSteps.map((step) => (
+              <div className="continuum-step" key={step.num}>
+                <div className="step-top">
+                  <span className="step-num">{step.num}</span>
+                </div>
+                <p className="step-title">
+                  {step.title.split("\n").map((line, idx) => (
+                    <span key={idx}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
+                </p>
+                <div className="step-sub">
+                  <img
+                    src={step.logo}
+                    alt={`${step.sub.replace("\n", " ")} logo`}
+                  />
+                  <a href="#businesses" className="step-business-link">
                     {step.sub.split("\n").map((line, idx) => (
                       <span key={idx}>
                         {line}
                         <br />
                       </span>
                     ))}
-                  </p>
+                  </a>
                 </div>
-                {i < continuumSteps.length - 1 && (
-                  <span className="step-arrow" key={`arrow-${step.num}`}>
-                    <IconArrowRight size={18} />
-                  </span>
-                )}
-              </>
+              </div>
             ))}
           </div>
         </div>
@@ -737,7 +1065,12 @@ function App() {
                 style={{ "--slot-rotation": `${-rotation}deg` }}
               >
                 <span className="wedge-num">01</span>
-                <span className="wedge-icon">{businessData[0].icon}</span>
+                <span className="wedge-icon">
+                  <img
+                    src={businessData[0].logo}
+                    alt="Esperer Nutrition logo"
+                  />
+                </span>
                 <h5>{businessData[0].name}</h5>
                 <p>{businessData[0].description}</p>
                 <span className="btn btn-teal btn-small">
@@ -753,7 +1086,12 @@ function App() {
                 style={{ "--slot-rotation": `${-rotation}deg` }}
               >
                 <span className="wedge-num">02</span>
-                <span className="wedge-icon">{businessData[1].icon}</span>
+                <span className="wedge-icon">
+                  <img
+                    src={businessData[1].logo}
+                    alt="Esperer BioResearch logo"
+                  />
+                </span>
                 <h5>{businessData[1].name}</h5>
                 <p>{businessData[1].description}</p>
                 <span className="btn btn-teal btn-small">
@@ -769,7 +1107,12 @@ function App() {
                 style={{ "--slot-rotation": `${-rotation}deg` }}
               >
                 <span className="wedge-num">03</span>
-                <span className="wedge-icon">{businessData[2].icon}</span>
+                <span className="wedge-icon">
+                  <img
+                    src={businessData[2].logo}
+                    alt="Health Voitho Technologies logo"
+                  />
+                </span>
                 <h5>{businessData[2].name}</h5>
                 <p>{businessData[2].description}</p>
                 <span className="btn btn-teal btn-small">
@@ -785,7 +1128,9 @@ function App() {
                 style={{ "--slot-rotation": `${-rotation}deg` }}
               >
                 <span className="wedge-num">04</span>
-                <span className="wedge-icon">{businessData[3].icon}</span>
+                <span className="wedge-icon">
+                  <img src={businessData[3].logo} alt="Salt Lick logo" />
+                </span>
                 <h5>{businessData[3].name}</h5>
                 <p>{businessData[3].description}</p>
                 <span className="btn btn-teal btn-small">
@@ -808,7 +1153,7 @@ function App() {
       {/* Global footprint */}
       <section className="footprint" id="footprint">
         <div className="footprint-copy">
-          <span className="eyebrow eyebrow-teal">OUR BUSINESSCE</span>
+          <span className="eyebrow eyebrow-teal">OUR BUSINESSES</span>
           <h2>A global footprint.</h2>
           <p>
             Our science is available across 12+ countries in some of the world's
@@ -846,8 +1191,8 @@ function App() {
         </div>
       </section>
 
-      {/* Foundation + Leadership */}
-      <section className="split-cards" id="leadership">
+      {/* Scientific Foundation */}
+      <section className="foundation-section" id="foundation">
         <div className="card foundation-card">
           <span className="eyebrow eyebrow-orange">
             OUR SCIENTIFIC FOUNDATION
@@ -855,9 +1200,7 @@ function App() {
           <h2>
             The DINI Axis.
             <br />
-            Our foundation for
-            <br />
-            intelligent oncology.
+            Our foundation for intelligent oncology.
           </h2>
           <p>
             Our proprietary framework connects Diet, Inflammation, Nutrition and
@@ -877,10 +1220,20 @@ function App() {
               <path d="M150,265 Q67.8,232.2 35,150" className="dini-arc" />
               <path d="M35,150 Q67.8,67.8 150,35" className="dini-arc" />
             </svg>
-            <span className="dini-node dini-top">DIET</span>
-            <span className="dini-node dini-left">NUTRITION</span>
-            <span className="dini-node dini-right">INFLAMMATION</span>
-            <span className="dini-node dini-bottom">IMMUNITY</span>
+            <div className="dini-orbit">
+              <span className="dini-orbit-node dini-top">
+                <span className="dini-node">DIET</span>
+              </span>
+              <span className="dini-orbit-node dini-left">
+                <span className="dini-node">NUTRITION</span>
+              </span>
+              <span className="dini-orbit-node dini-right">
+                <span className="dini-node">INFLAMMATION</span>
+              </span>
+              <span className="dini-orbit-node dini-bottom">
+                <span className="dini-node">IMMUNITY</span>
+              </span>
+            </div>
             <span className="dini-center">
               DINI
               <br />
@@ -888,22 +1241,37 @@ function App() {
             </span>
           </div>
         </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="leadership-section" id="leadership">
+        <div className="leadership-image-panel">
+          <img
+            src={FounderImg}
+            alt="Dr. Raktim Chattopadhyay"
+            className="leadership-feature-image"
+          />
+        </div>
         <div className="card leadership-card">
           <span className="eyebrow eyebrow-orange">LEADERSHIP</span>
           <h2>Dr. Raktim Chattopadhyay</h2>
           <p className="leadership-role">Founder, Esperer Group</p>
           <div className="leadership-body">
-            <img
-              src={leadership}
-              alt="Dr. Raktim Chattopadhyay"
-              className="leadership-photo"
-            />
             <div className="leadership-quote">
               <IconQuote />
               <p>
-                Treating the cancer is only one part of curing the patient. The
-                other part — helping the body carry that treatment — is what
-                Esperer was built to do.
+                Dr. Raktim Chattopadhyay is a cancer researcher and healthcare
+                entrepreneur with over 20 years of techno-commercial experience
+                across oncology, nephrology and critical care, building and
+                scaling businesses across some of the world's most tightly
+                regulated healthcare markets.
+              </p>
+              <br />
+              <p>
+                He is the originator of the DiNI Axis, a globally patented
+                research hypothesis examining the relationship between gut
+                microbiota and cancer, which forms the scientific foundation for
+                much of the Group's approach to nutrition-led oncology care.
               </p>
             </div>
           </div>
