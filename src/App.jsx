@@ -1,20 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  logo,
-  heroWoman,
-  building,
-  worldMap,
-  leadership,
   insightFlasks,
   insightAI,
   insightMicroscope,
 } from "./assets/images.js";
+import logo from "./assets/logo_with_black_text.png";
 import Woman from "./assets/woman.png";
 import MapImg from "./assets/map_img.png";
-import nutritionLogo from "./assets/esperer_nutrition.jpeg";
-import bioResearchLogo from "./assets/Esperer_bioresearch.jpeg";
-import healthVoithoLogo from "./assets/health_voitho.jpeg";
-import saltLickLogo from "./assets/salt_lick.jpeg";
+import nutritionLogo from "./assets/esperer_nutrition.png";
+import bioResearchLogo from "./assets/Esperer_bioresearch.png";
+import healthVoithoLogo from "./assets/health_voitho.png";
+import saltLickLogo from "./assets/salt_lick.png";
 import breakthroughPatient from "./assets/breakthrough_01_patient.png";
 import breakthroughNutraIq from "./assets/breakthrough_02_nutra_iq.png";
 import FounderImg from "./assets/founder_img.jpeg";
@@ -545,9 +541,9 @@ function EspererGlobe() {
 
     const globe = window.EspererGlobe(globeRef.current, {
       nodes: 340,
-      dot: "#0b2e34",
-      line: "22,58,64",
-      halo: "20,182,176",
+      dot: "#000000",
+      line: "0,0,0",
+      halo: "56,177,179",
       blobs: true,
       spin: 0.00013,
       parallax: true,
@@ -649,7 +645,7 @@ function App() {
 
     const autoplayId = window.setInterval(() => {
       changeShowcaseSlide(1);
-    }, 3000);
+    }, 5000);
 
     return () => window.clearInterval(autoplayId);
   }, [showcasePaused]);
@@ -721,7 +717,7 @@ function App() {
           <button className="btn btn-teal">
             Explore Our Businesses <IconArrowRight />
           </button>
-          <div className="hero-tagline">
+          {/* <div className="hero-tagline">
             <span className="tagline-rule" />
             <p>
               TWO BREAKTHROUGHS.
@@ -730,7 +726,7 @@ function App() {
               <br />
               ZERO GUESSWORK.
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="hero-image">
           <EspererGlobe />
@@ -738,7 +734,7 @@ function App() {
       </section>
 
       {/* Business showcase */}
-      <section className="business-showcase" aria-label="Where we operate">
+      {/* <section className="business-showcase" aria-label="Where we operate">
         <div className="showcase-heading">
           <span className="eyebrow eyebrow-orange">WHERE WE OPERATE</span>
           <h2>
@@ -809,6 +805,98 @@ function App() {
             <span aria-hidden="true">&#8594;</span>
           </button>
         </div>
+      </section> */}
+
+      {/* Business showcase redesign */}
+      <section
+        className="showcase-redesign"
+        aria-label="Where we operate, alternate view"
+      >
+        <div className="showcase-redesign-heading">
+          <span className="eyebrow">WHERE WE OPERATE</span>
+          <h2>
+            The frontiers of cancer care
+            <br />
+            Esperer Group is redefining.
+          </h2>
+        </div>
+        <div
+          className="showcase-redesign-viewport"
+          aria-live="polite"
+          onMouseEnter={() => setShowcasePaused(true)}
+          onMouseLeave={() => setShowcasePaused(false)}
+        >
+          <div
+            className="showcase-redesign-track"
+            style={{ transform: `translateX(-${showcaseIndex * 100}%)` }}
+          >
+            {showcaseBusinesses.map((business) => (
+              <article className="showcase-redesign-slide" key={business.name}>
+                <div className="showcase-redesign-logo-wrap">
+                  <span
+                    className="showcase-redesign-orbit"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src={business.logo}
+                    alt={`${business.name} logo`}
+                    className="showcase-redesign-logo"
+                  />
+                </div>
+                <div className="showcase-redesign-content">
+                  <span className="showcase-redesign-eyebrow">
+                    {business.name.toUpperCase()}
+                  </span>
+                  <h2>{business.headline}</h2>
+                  <p>{business.description}</p>
+                  <a href="#businesses" className="showcase-redesign-cta">
+                    Explore this space <IconArrowRight />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="showcase-redesign-controls">
+          <button
+            type="button"
+            className="showcase-redesign-arrow"
+            onClick={() => changeShowcaseSlide(-1)}
+            aria-label="Previous business"
+          >
+            <span aria-hidden="true">&#8592;</span>
+          </button>
+          <div className="showcase-redesign-counter">
+            <span>{String(showcaseIndex + 1).padStart(2, "0")}</span>
+            <span>/</span>
+            <span>04</span>
+          </div>
+          <div
+            className="showcase-redesign-dots"
+            role="tablist"
+            aria-label="Business slides"
+          >
+            {showcaseBusinesses.map((business, index) => (
+              <button
+                type="button"
+                role="tab"
+                key={business.name}
+                aria-label={`Show ${business.name}`}
+                aria-selected={showcaseIndex === index}
+                className={showcaseIndex === index ? "is-active" : ""}
+                onClick={() => setShowcaseIndex(index)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className="showcase-redesign-arrow"
+            onClick={() => changeShowcaseSlide(1)}
+            aria-label="Next business"
+          >
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
       </section>
 
       {/* About */}
@@ -824,10 +912,14 @@ function App() {
             built entirely around oncology.
           </h2>
           <p>
-            We bring together molecular nutrition, oncology pharmaceuticals,
-            medical technology and artificial intelligence into a single
-            ecosystem, built to help clinicians, institutions and patients make
-            better decisions and get better outcomes.
+            Esperer Group is a research-driven oncology innovation enterprise,
+            working across the full arc of cancer care — prevention, early
+            detection, treatment, precision nutrition, and long-term
+            survivorship. We bring together molecular nutrition, oncology
+            pharmaceuticals, medical technology and artificial intelligence into
+            a single ecosystem, built to help clinicians, healthcare
+            institutions and patients make better decisions and get better
+            outcomes.
           </p>
           <div className="about-features">
             <div className="feature">
@@ -860,10 +952,8 @@ function App() {
       {/* Breakthroughs */}
       <section className="breakthroughs" aria-labelledby="breakthroughs-title">
         <div className="breakthroughs-heading">
-          <span className="eyebrow eyebrow-teal">OUR BREAKTHROUGHS</span>
-          <h2 id="breakthroughs-title">
-            Two breakthroughs. One discipline. Zero guesswork.
-          </h2>
+          <span className="eyebrow eyebrow-orange">OUR BREAKTHROUGHS</span>
+          <h2 id="breakthroughs-title">Our Breakthroughs</h2>
           <p>
             Developed within Esperer Nutrition, these two pioneering innovations
             are redefining how nutrition supports cancer treatment — with
@@ -1024,8 +1114,13 @@ function App() {
       <section className="businesses" id="businesses">
         <div className="businesses-copy">
           <span className="eyebrow eyebrow-orange">OUR BUSINESSES</span>
-          <h2>{selectedBusiness.headline}</h2>
-          <p>{selectedBusiness.description}</p>
+          <h2>Each addressing a distinct part of the cancer care continuum</h2>
+          <p>
+            Every innovation we build — from clinically validated protocols to
+            AI-driven platforms — is designed to make cancer care more
+            personalized, improve quality of life, and put evidence-based care
+            within reach of more people.
+          </p>
           <a href="#" className="link-arrow">
             View all businesses <IconArrowRight />
           </a>
@@ -1153,7 +1248,7 @@ function App() {
       {/* Global footprint */}
       <section className="footprint" id="footprint">
         <div className="footprint-copy">
-          <span className="eyebrow eyebrow-teal">OUR BUSINESSES</span>
+          <span className="eyebrow eyebrow-orange">OUR BUSINESSES</span>
           <h2>A global footprint.</h2>
           <p>
             Our science is available across 12+ countries in some of the world's
@@ -1290,9 +1385,9 @@ function App() {
               </div>
             ))}
           </div>
-          <a href="#" className="link-arrow dark">
+          {/* <a href="#" className="link-arrow dark">
             View all locations <IconArrowRight />
-          </a>
+          </a> */}
         </div>
       </section>
 

@@ -9,7 +9,7 @@
  * OPTIONS (all optional)
  *   EspererGlobe('#globe', {
  *     nodes: 340,          // number of points on the sphere
- *     dot:   '#0b2e34',    // front-facing node color
+ *     dot:   '#000000',    // front-facing node color
  *     line:  '22,58,64',   // connection line color, as "r,g,b"
  *     halo:  '20,182,176', // outer glow color, as "r,g,b"
  *     blobs: true,         // soft drifting background cells
@@ -27,7 +27,7 @@
 
     var o = opts || {};
     var N = o.nodes || 340;
-    var DOT = o.dot || '#0b2e34';
+    var DOT = o.dot || '#000000';
     var LINE = o.line || '22,58,64';
     var HALO = o.halo || '20,182,176';
     var SPIN = o.spin == null ? 0.00013 : o.spin;
