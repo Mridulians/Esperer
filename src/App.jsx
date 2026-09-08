@@ -776,17 +776,17 @@ function App() {
     return () => window.clearInterval(autoplayId);
   }, [showcasePaused]);
 
-  // useEffect(() => {
-  //   if (referenceSliderPaused) {
-  //     return undefined;
-  //   }
+  useEffect(() => {
+    if (referenceSliderPaused) {
+      return undefined;
+    }
 
-  //   const autoplayId = window.setInterval(() => {
-  //     changeReferenceSlider(1);
-  //   }, 6000);
+    const autoplayId = window.setInterval(() => {
+      changeReferenceSlider(1);
+    }, 5000);
 
-  //   return () => window.clearInterval(autoplayId);
-  // }, [referenceSliderPaused]);
+    return () => window.clearInterval(autoplayId);
+  }, [referenceSliderPaused]);
 
   useEffect(() => {
     if (fullBleedSliderPaused) {
