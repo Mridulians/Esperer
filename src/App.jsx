@@ -11,9 +11,16 @@ import nutritionLogo from "./assets/esperer_nutrition.png";
 import bioResearchLogo from "./assets/Esperer_bioresearch.png";
 import healthVoithoLogo from "./assets/health_voitho.png";
 import saltLickLogo from "./assets/salt_lick.png";
+import SliderImg from "./assets/Slider_img.png";
+import SliderImg2 from "./assets/Slider_img2.png";
+import SliderImg3 from "./assets/Slider_img3.png";
+import SliderImg4 from "./assets/Slider_img4.png";
 import breakthroughPatient from "./assets/breakthrough_01_patient.png";
 import breakthroughNutraIq from "./assets/breakthrough_02_nutra_iq.png";
 import FounderImg from "./assets/founder_img.jpeg";
+import SiteFooter from "./components/SiteFooter.jsx";
+import SiteHeader from "./components/SiteHeader.jsx";
+import BusinessDetailPage from "./pages/BusinessDetailPage.jsx";
 import "./assets/esperer-globe.js";
 import "./App.css";
 
@@ -286,15 +293,6 @@ const IconInstagram = () => (
 
 /* ---------- Data ---------- */
 
-const navLinks = [
-  { label: "Home", id: "home" },
-  { label: "About Us", id: "about" },
-  { label: "Our Businesses", id: "businesses" },
-  { label: "Leadership", id: "leadership" },
-  // { label: "Insights", id: "insights" },
-  { label: "Contact Us", id: "contact" },
-];
-
 const continuumSteps = [
   {
     num: "01",
@@ -431,66 +429,174 @@ const businessData = [
     name: "Esperer Nutrition",
     logo: nutritionLogo,
     icon: <IconCup />,
+    country: "India",
+    badge: "PATENTED · GLOBAL FIRST",
     description:
-      "Globally patented nutrition therapy that works alongside cancer treatment.",
+      "Globally patented onco-nutrition portfolio; first to launch cancer condition- and stage-specific nutrition, designed to work alongside treatment for optimal outcomes.",
     headline: "Molecular nutrition for stronger treatment outcomes.",
   },
   {
-    id: "bioresearch",
+    id: "saltlick",
     number: "02",
+    name: "Salt Lick",
+    logo: saltLickLogo,
+    icon: <IconShield />,
+    country: "India",
+    badge: "PATENTED · GLOBAL FIRST",
+    description:
+      "Risk assessment and early detection. A patented system that performs cancer risk assessment well in advance through simple screening.",
+    headline: "Early risk detection and prevention powered by AI.",
+  },
+  {
+    id: "bioresearch",
+    number: "03",
     name: "Esperer BioResearch",
     logo: bioResearchLogo,
     icon: <IconFlask />,
+    country: "India",
     description:
       "Bringing innovative anti-cancer drugs to the patients who need them.",
     headline: "Precision oncology research built for real-world impact.",
   },
   {
     id: "technologies",
-    number: "03",
+    number: "04",
     name: "Health Voitho Technologies",
     logo: healthVoithoLogo,
     icon: <IconMonitor />,
+    country: "India",
     description:
       "Medtech — medical devices, technology and machine learning applied to healthcare.",
     headline: "Connected technology that improves cancer care delivery.",
   },
   {
-    id: "saltlick",
-    number: "04",
-    name: "Salt Lick",
-    logo: saltLickLogo,
-    icon: <IconShield />,
-    description: "AI-enabled cancer risk assessment and prevention platform.",
-    headline: "Early risk detection and prevention powered by AI.",
+    id: "global",
+    number: "05",
+    name: "Esperer Global",
+    logo: nutritionLogo,
+    icon: <IconGlobe />,
+    country: "Dubai, UAE",
+    description:
+      "The Group's international access and commercialization arm, extending Esperer's science to healthcare partners worldwide.",
+    headline: "Global access for better cancer care.",
+  },
+  {
+    id: "australia",
+    number: "06",
+    name: "Esperer Nutrition Australia",
+    logo: nutritionLogo,
+    icon: <IconGlobe />,
+    country: "Australia",
+    description:
+      "Extending Esperer Nutrition's globally patented onco-nutrition science to patients across Australia and Oceania.",
+    headline: "Onco-nutrition science across Australia and Oceania.",
+  },
+  {
+    id: "united-states",
+    number: "07",
+    name: "Esperer Nutrition USA",
+    logo: nutritionLogo,
+    icon: <IconGlobe />,
+    country: "United States",
+    description:
+      "Extending Esperer Nutrition's globally patented onco-nutrition science to patients across the United States.",
+    headline: "Patented nutrition science in the United States.",
   },
 ];
 
 const showcaseBusinesses = [
   {
     name: "Esperer Nutrition",
+    slug: "esperer-nutrition",
+    category: "MOLECULAR NUTRITION",
     logo: nutritionLogo,
+    detail: {
+      heroColor: "#38b1b3",
+      eyebrow: "MOLECULAR NUTRITION",
+      headline:
+        "The body carrying the treatment deserves as much science as the treatment itself.",
+      intro:
+        "Chemotherapy, radiation and surgery all place enormous demand on a patient's body. This space exists to make sure the body can meet that demand — and complete the treatment it's been given.",
+      whyFirst:
+        "Malnutrition and treatment intolerance are significant factors in oncology outcomes — a patient too depleted to continue treatment cannot benefit from even the best therapy available. Nutrition, approached with the right precision, is not a wellness add-on; it is a clinical variable in whether treatment succeeds.",
+      whySecond:
+        "This space treats nutrition as its own discipline — specific to cancer type, stage and treatment phase — designed to run alongside active treatment, not follow it.",
+      cardDescription:
+        "Holds a globally patented portfolio in onco-nutrition, and was first to introduce cancer condition- and stage-specific nutrition therapy — designed to work alongside cancer treatment to help patients achieve its best possible outcome.",
+    },
+    image: SliderImg,
     headline: "Treatment Works. Nutrition Is What Lets It Keep Working.",
     description:
       "The world's first stage- and condition-specific onco-nutrition therapy, globally patented — because the body carrying the treatment deserves as much science as the treatment itself.",
   },
   {
     name: "Esperer BioResearch",
+    slug: "esperer-bioresearch",
+    category: "TREATMENT",
     logo: bioResearchLogo,
+    detail: {
+      heroColor: "#38b1b3",
+      eyebrow: "TREATMENT",
+      headline:
+        "Bringing the world's most innovative anti-cancer medicines to the patients who need them.",
+      intro:
+        "Discovering a therapy is only half the work. This space exists to bring genuinely innovative anti-cancer medicines to the patients who need them.",
+      whyFirst:
+        "Every advance in oncology research means little until it reaches an actual patient as real medicine — safe, regulated and genuinely innovative. Treatment is where scientific discovery becomes a therapy a patient can receive.",
+      whySecond:
+        "This space is where Esperer Group researches and brings forward innovative anti-cancer pharmaceuticals — advancing the medicines used directly in the treatment of cancer, built to the same standards of clinical rigor as every other business in the Group.",
+      cardDescription:
+        "Brings innovative anti-cancer drugs to patients — advancing the medicines used directly in the treatment of cancer.",
+    },
+    image: SliderImg2,
     headline: "Science That Doesn't Stop At Discovery.",
     description:
       "From research to real medicine — advancing the innovative drugs used directly in the treatment of cancer.",
   },
   {
     name: "Health Voitho Technologies",
+    slug: "health-voitho-technologies",
+    category: "TECHNOLOGY",
     logo: healthVoithoLogo,
+    detail: {
+      heroColor: "#38b1b3",
+      eyebrow: "TECHNOLOGY",
+      headline:
+        "Technology, devices and machine learning — applied directly to cancer care.",
+      intro:
+        "Every stage of the cancer journey — risk assessment, detection, treatment, monitoring — runs better with the right tools behind it. This space builds those tools.",
+      whyFirst:
+        "Cancer care depends on technology at every stage — from the devices used to screen and diagnose, to the systems used to monitor a patient through treatment. There is significant opportunity to bring the latest advances in machine learning and device technology directly into that journey.",
+      whySecond:
+        "This space applies medical devices and machine learning directly to healthcare delivery, built to make the rest of the cancer care continuum more precise and more accessible.",
+      cardDescription:
+        "Operates in the medtech space — developing medical devices and applying technology and machine learning across healthcare.",
+    },
+    image: SliderImg3,
     headline: "Where Machine Intelligence Meets The Fight Against Cancer.",
     description:
       "The infrastructure behind better cancer care — devices and applied ML that make risk assessment, detection and monitoring sharper across the entire journey.",
   },
   {
     name: "Salt Lick Healthcare",
+    slug: "salt-lick-healthcare",
+    category: "PREVENTION & EARLY DETECTION",
     logo: saltLickLogo,
+    detail: {
+      heroColor: "#38b1b3",
+      eyebrow: "RISK ASSESSMENT & EARLY DETECTION",
+      headline:
+        "Cancer, caught early enough, is often cancer that can be cured.",
+      intro:
+        "Most cancer care begins after diagnosis. This space exists to move earlier than that — assessing risk, and catching disease, well before it becomes harder to treat.",
+      whyFirst:
+        "Cancer outcomes are shaped long before a diagnosis is made, and stage at detection is one of the strongest predictors of survival in oncology — which makes early risk assessment one of the most valuable additions to the cancer care journey.",
+      whySecond:
+        "This space brings risk assessment and early detection together as one continuous effort: identifying who carries elevated cancer risk, and catching cancer itself at the earliest possible stage — because the earlier cancer is found, the more treatment options remain, and the better the odds of a cure.",
+      cardDescription:
+        "A patented system that performs cancer risk assessment well in advance, through simple screening — built on the understanding that cancer, when caught early, is far more likely to be treated successfully.",
+    },
+    image: SliderImg4,
     headline: "Cancer, Caught Early Enough, Is Often Cancer That Can Be Cured.",
     description:
       "Patented risk assessment through simple screening — identifying cancer risk well before it becomes cancer to treat.",
@@ -556,10 +662,24 @@ function EspererGlobe() {
 }
 
 function App() {
+  const businessRoute = window.location.pathname.match(/^\/business\/([^/]+)/);
+  const detailBusiness = showcaseBusinesses.find(
+    (business) => business.slug === businessRoute?.[1],
+  );
+
+  if (detailBusiness) {
+    return (
+      <BusinessDetailPage business={detailBusiness} businesses={businessData} />
+    );
+  }
+
   const [selectedBusinessId, setSelectedBusinessId] = useState("nutrition");
-  const [rotation, setRotation] = useState(0);
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [showcasePaused, setShowcasePaused] = useState(false);
+  const [referenceSliderIndex, setReferenceSliderIndex] = useState(0);
+  const [referenceSliderPaused, setReferenceSliderPaused] = useState(false);
+  const [fullBleedSliderIndex, setFullBleedSliderIndex] = useState(0);
+  const [fullBleedSliderPaused, setFullBleedSliderPaused] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -581,21 +701,27 @@ function App() {
     if (businessId === selectedBusinessId) {
       return;
     }
-
-    const currentIndex = businessData.findIndex(
-      (business) => business.id === selectedBusinessId,
-    );
-    const targetIndex = businessData.findIndex(
-      (business) => business.id === businessId,
-    );
-    const delta = (currentIndex - targetIndex) * 90;
-
-    setRotation((previous) => previous + delta);
     setSelectedBusinessId(businessId);
   };
 
   const changeShowcaseSlide = (direction) => {
     setShowcaseIndex(
+      (currentIndex) =>
+        (currentIndex + direction + showcaseBusinesses.length) %
+        showcaseBusinesses.length,
+    );
+  };
+
+  const changeReferenceSlider = (direction) => {
+    setReferenceSliderIndex(
+      (currentIndex) =>
+        (currentIndex + direction + showcaseBusinesses.length) %
+        showcaseBusinesses.length,
+    );
+  };
+
+  const changeFullBleedSlider = (direction) => {
+    setFullBleedSliderIndex(
       (currentIndex) =>
         (currentIndex + direction + showcaseBusinesses.length) %
         showcaseBusinesses.length,
@@ -650,54 +776,37 @@ function App() {
     return () => window.clearInterval(autoplayId);
   }, [showcasePaused]);
 
+  // useEffect(() => {
+  //   if (referenceSliderPaused) {
+  //     return undefined;
+  //   }
+
+  //   const autoplayId = window.setInterval(() => {
+  //     changeReferenceSlider(1);
+  //   }, 6000);
+
+  //   return () => window.clearInterval(autoplayId);
+  // }, [referenceSliderPaused]);
+
+  useEffect(() => {
+    if (fullBleedSliderPaused) {
+      return undefined;
+    }
+
+    const autoplayId = window.setInterval(() => {
+      changeFullBleedSlider(1);
+    }, 6000);
+
+    return () => window.clearInterval(autoplayId);
+  }, [fullBleedSliderPaused]);
+
   return (
     <div className="page">
-      {/* Progress bar */}
-
-      <div>
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${scrollProgress}%` }}
-          />
-        </div>
-
-        {/* Utility bar */}
-        <div className="utility-bar">
-          <p>
-            A global oncology innovation enterprise, working across prevention,
-            early detection, treatment, nutrition and enabling technology.
-          </p>
-          <div className="utility-right">
-            <span>
-              India&nbsp;·&nbsp;UAE&nbsp;·&nbsp;Australia&nbsp;·&nbsp;USA
-            </span>
-            <IconGlobe />
-          </div>
-        </div>
-      </div>
-
-      {/* Nav */}
-      <header className="navbar">
-        <div className="brand">
-          <img src={logo} alt="Esperer Group" className="brand-logo" />
-        </div>
-        <nav className="nav-links">
-          {navLinks.map((link) => (
-            <a
-              href="#"
-              key={link.id}
-              onClick={(e) => handleNavClick(e, link.id)}
-              className={activeSection === link.id ? "active" : ""}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-        <button className="btn btn-teal">
-          Explore Our Businesses <IconArrowRight />
-        </button>
-      </header>
+      <SiteHeader
+        activeSection={activeSection}
+        onNavigate={handleNavClick}
+        scrollProgress={scrollProgress}
+      />
 
       {/* Hero */}
       <section className="hero" id="home">
@@ -762,7 +871,10 @@ function App() {
                 <p className="showcase-name">{business.name}</p>
                 <h3>{business.headline}</h3>
                 <p className="showcase-description">{business.description}</p>
-                <a href="#businesses" className="showcase-cta">
+                  <a
+                    href={`/business/${business.slug}`}
+                    className="showcase-cta"
+                  >
                   Explore this space <IconArrowRight />
                 </a>
               </article>
@@ -849,7 +961,10 @@ function App() {
                   </span>
                   <h2>{business.headline}</h2>
                   <p>{business.description}</p>
-                  <a href="#businesses" className="showcase-redesign-cta">
+                  <a
+                    href={`/business/${business.slug}`}
+                    className="showcase-redesign-cta"
+                  >
                     Explore this space <IconArrowRight />
                   </a>
                 </div>
@@ -898,6 +1013,187 @@ function App() {
           </button>
         </div>
       </section>
+
+      {/* Reference-style business slider */}
+      <section
+        className="reference-slider"
+        aria-label="Where we operate, featured businesses"
+        onMouseEnter={() => setReferenceSliderPaused(true)}
+        onMouseLeave={() => setReferenceSliderPaused(false)}
+      >
+        <div className="reference-slider-heading">
+          <span className="eyebrow eyebrow-orange">WHERE WE OPERATE</span>
+          <h2>The frontiers of cancer care Esperer Group is redefining.</h2>
+        </div>
+        <div className="reference-slider-viewport" aria-live="polite">
+          <div
+            className="reference-slider-track"
+            style={{ transform: `translateX(-${referenceSliderIndex * 100}%)` }}
+          >
+            {showcaseBusinesses.map((business) => (
+              <article className="reference-slider-slide" key={business.name}>
+                <img
+                  className="reference-slider-image"
+                  src={business.image}
+                  alt={`${business.name} feature illustration`}
+                />
+                <div className="reference-slider-copy">
+                  <span className="reference-slider-pill">
+                    {business.category}
+                  </span>
+                  <h2>{business.headline}</h2>
+                  <p>{business.description}</p>
+                  <a
+                    href={`/business/${business.slug}`}
+                    className="reference-slider-cta"
+                  >
+                    Explore this space <IconArrowRight />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        {/* <button
+          type="button"
+          className="reference-slider-side-arrow reference-slider-side-arrow-left"
+          onClick={() => changeReferenceSlider(-1)}
+          aria-label="Previous featured business"
+        >
+          &#8592;
+        </button>
+        <button
+          type="button"
+          className="reference-slider-side-arrow reference-slider-side-arrow-right"
+          onClick={() => changeReferenceSlider(1)}
+          aria-label="Next featured business"
+        >
+          &#8594;
+        </button> */}
+        <div className="reference-slider-controls">
+          <button
+            type="button"
+            className="reference-slider-arrow"
+            onClick={() => changeReferenceSlider(-1)}
+            aria-label="Previous featured business"
+          >
+            &#8592;
+          </button>
+          <div
+            className="reference-slider-dots"
+            role="tablist"
+            aria-label="Featured businesses"
+          >
+            {showcaseBusinesses.map((business, index) => (
+              <button
+                type="button"
+                role="tab"
+                key={business.name}
+                aria-label={`Show ${business.name}`}
+                aria-selected={referenceSliderIndex === index}
+                className={referenceSliderIndex === index ? "is-active" : ""}
+                onClick={() => setReferenceSliderIndex(index)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className="reference-slider-arrow"
+            onClick={() => changeReferenceSlider(1)}
+            aria-label="Next featured business"
+          >
+            &#8594;
+          </button>
+        </div>
+      </section>
+
+      {/* Full-bleed business slider */}
+      {/* <section
+        className="full-bleed-slider"
+        aria-label="Where we operate, full-bleed view"
+        onMouseEnter={() => setFullBleedSliderPaused(true)}
+        onMouseLeave={() => setFullBleedSliderPaused(false)}
+      >
+        <div
+          className="full-bleed-slider-track"
+          style={{ transform: `translateX(-${fullBleedSliderIndex * 100}%)` }}
+        >
+          {showcaseBusinesses.map((business) => (
+            <article
+              className="full-bleed-slide"
+              key={business.name}
+              style={{ backgroundImage: `url(${SliderImg3})` }}
+            >
+              <div className="full-bleed-slide-overlay" aria-hidden="true" />
+              <div className="full-bleed-slide-content">
+                <span className="eyebrow eyebrow-orange">WHERE WE OPERATE</span>
+                <span className="full-bleed-slide-pill">
+                  {business.category}
+                </span>
+                <h2>{business.headline}</h2>
+                <p>{business.description}</p>
+                <a
+                  href={`/business/${business.slug}`}
+                  className="full-bleed-slide-cta"
+                >
+                  Explore this space <IconArrowRight />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <button
+          type="button"
+          className="full-bleed-arrow full-bleed-arrow-left"
+          onClick={() => changeFullBleedSlider(-1)}
+          aria-label="Previous business"
+        >
+          &#8592;
+        </button>
+        <button
+          type="button"
+          className="full-bleed-arrow full-bleed-arrow-right"
+          onClick={() => changeFullBleedSlider(1)}
+          aria-label="Next business"
+        >
+          &#8594;
+        </button>
+        <div className="full-bleed-controls">
+          <button
+            type="button"
+            className="full-bleed-control-arrow"
+            onClick={() => changeFullBleedSlider(-1)}
+            aria-label="Previous business"
+          >
+            &#8592;
+          </button>
+          <div
+            className="full-bleed-dots"
+            role="tablist"
+            aria-label="Business slides"
+          >
+            {showcaseBusinesses.map((business, index) => (
+              <button
+                type="button"
+                role="tab"
+                key={business.name}
+                aria-label={`Show ${business.name}`}
+                aria-selected={fullBleedSliderIndex === index}
+                className={fullBleedSliderIndex === index ? "is-active" : ""}
+                onClick={() => setFullBleedSliderIndex(index)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className="full-bleed-control-arrow"
+            onClick={() => changeFullBleedSlider(1)}
+            aria-label="Next business"
+          >
+            &#8594;
+          </button>
+        </div>
+      </section> */}
 
       {/* About */}
       <section className="about" id="about">
@@ -1121,9 +1417,9 @@ function App() {
             personalized, improve quality of life, and put evidence-based care
             within reach of more people.
           </p>
-          <a href="#" className="link-arrow">
+          {/* <a href="#businesses-grid" className="link-arrow">
             View all businesses <IconArrowRight />
-          </a>
+          </a> */}
         </div>
         <div className="businesses-diagram">
           <div className="wheel">
@@ -1148,90 +1444,45 @@ function App() {
               />
             </svg>
 
-            <div
-              className="wheel-rotation"
-              style={{ transform: `rotate(${rotation}deg)` }}
-            >
-              <button
-                type="button"
-                className={`wedge wedge-01 ${selectedBusinessId === "nutrition" ? "is-active" : ""}`}
-                onClick={() => handleBusinessClick("nutrition")}
-                aria-pressed={selectedBusinessId === "nutrition"}
-                style={{ "--slot-rotation": `${-rotation}deg` }}
-              >
-                <span className="wedge-num">01</span>
-                <span className="wedge-icon">
-                  <img
-                    src={businessData[0].logo}
-                    alt="Esperer Nutrition logo"
-                  />
-                </span>
-                <h5>{businessData[0].name}</h5>
-                <p>{businessData[0].description}</p>
-                <span className="btn btn-teal btn-small">
-                  Explore <IconArrowRight size={14} />
-                </span>
-              </button>
+            <div className="wheel-rotation">
+              {businessData.map((business, index) => {
+                const selectedIndex = businessData.findIndex(
+                  (item) => item.id === selectedBusinessId,
+                );
+                const slotIndex =
+                  (index - selectedIndex + businessData.length) %
+                  businessData.length;
 
-              <button
-                type="button"
-                className={`wedge wedge-02 ${selectedBusinessId === "bioresearch" ? "is-active" : ""}`}
-                onClick={() => handleBusinessClick("bioresearch")}
-                aria-pressed={selectedBusinessId === "bioresearch"}
-                style={{ "--slot-rotation": `${-rotation}deg` }}
-              >
-                <span className="wedge-num">02</span>
-                <span className="wedge-icon">
-                  <img
-                    src={businessData[1].logo}
-                    alt="Esperer BioResearch logo"
-                  />
-                </span>
-                <h5>{businessData[1].name}</h5>
-                <p>{businessData[1].description}</p>
-                <span className="btn btn-teal btn-small">
-                  Explore <IconArrowRight size={14} />
-                </span>
-              </button>
-
-              <button
-                type="button"
-                className={`wedge wedge-03 ${selectedBusinessId === "technologies" ? "is-active" : ""}`}
-                onClick={() => handleBusinessClick("technologies")}
-                aria-pressed={selectedBusinessId === "technologies"}
-                style={{ "--slot-rotation": `${-rotation}deg` }}
-              >
-                <span className="wedge-num">03</span>
-                <span className="wedge-icon">
-                  <img
-                    src={businessData[2].logo}
-                    alt="Health Voitho Technologies logo"
-                  />
-                </span>
-                <h5>{businessData[2].name}</h5>
-                <p>{businessData[2].description}</p>
-                <span className="btn btn-teal btn-small">
-                  Explore <IconArrowRight size={14} />
-                </span>
-              </button>
-
-              <button
-                type="button"
-                className={`wedge wedge-04 ${selectedBusinessId === "saltlick" ? "is-active" : ""}`}
-                onClick={() => handleBusinessClick("saltlick")}
-                aria-pressed={selectedBusinessId === "saltlick"}
-                style={{ "--slot-rotation": `${-rotation}deg` }}
-              >
-                <span className="wedge-num">04</span>
-                <span className="wedge-icon">
-                  <img src={businessData[3].logo} alt="Salt Lick logo" />
-                </span>
-                <h5>{businessData[3].name}</h5>
-                <p>{businessData[3].description}</p>
-                <span className="btn btn-teal btn-small">
-                  Explore <IconArrowRight size={14} />
-                </span>
-              </button>
+                return (
+                  <article
+                    className={`wedge wedge-slot-${slotIndex} ${selectedBusinessId === business.id ? "is-active" : ""}`}
+                    onClick={() => handleBusinessClick(business.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleBusinessClick(business.id);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    key={business.id}
+                  >
+                    <span className="wedge-num">{business.number}</span>
+                    <span className="wedge-icon">
+                      <img src={business.logo} alt={`${business.name} logo`} />
+                    </span>
+                    <h5>{business.name}</h5>
+                    <p>{business.description}</p>
+                    <a
+                      href={`/business/${business.id}`}
+                      className="btn btn-teal btn-small"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      Explore <IconArrowRight size={14} />
+                    </a>
+                  </article>
+                );
+              })}
             </div>
 
             <div className="wheel-center">
@@ -1242,6 +1493,41 @@ function App() {
               <span className="wheel-logo-sub">GROUP</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Our Businesses: all business cards */}
+      <section
+        className="businesses businesses-cards-section"
+        id="businesses-grid"
+      >
+        <div className="businesses-copy businesses-cards-copy">
+          <span className="eyebrow eyebrow-orange">OUR BUSINESSES</span>
+          <h2>Each addressing a distinct part of the cancer care continuum</h2>
+          <p>
+            Every innovation we build — from clinically validated protocols to
+            AI-driven platforms — is designed to make cancer care more
+            personalized, improve quality of life, and put evidence-based care
+            within reach of more people.
+          </p>
+        </div>
+        <div className="businesses-grid">
+          {businessData.map((business) => (
+            <article className="business-card" key={business.id}>
+              <div className="business-card-logo">
+                <img src={business.logo} alt={`${business.name} logo`} />
+              </div>
+              {business.badge && (
+                <span className="business-card-badge">{business.badge}</span>
+              )}
+              <span className="business-card-country">{business.country}</span>
+              <h3>{business.name}</h3>
+              <p>{business.description}</p>
+              <a href="#contact" className="business-card-link">
+                KNOW MORE <IconArrowRight size={13} />
+              </a>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -1287,7 +1573,7 @@ function App() {
       </section>
 
       {/* Scientific Foundation */}
-      <section className="foundation-section" id="foundation">
+      {/* <section className="foundation-section" id="foundation">
         <div className="card foundation-card">
           <span className="eyebrow eyebrow-orange">
             OUR SCIENTIFIC FOUNDATION
@@ -1336,7 +1622,7 @@ function App() {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Leadership */}
       <section className="leadership-section" id="leadership">
@@ -1391,37 +1677,6 @@ function App() {
         </div>
       </section>
 
-      {/* Insights */}
-      {/* <section className="insights">
-        <div className="insights-head">
-          <div>
-            <span className="eyebrow eyebrow-orange">
-              INSIGHTS &amp; IMPACT
-            </span>
-            <h2>
-              Knowledge that
-              <br />
-              drives change.
-            </h2>
-          </div>
-        </div>
-        <div className="insights-grid">
-          {insights.map((item) => (
-            <article className="insight-card" key={item.title}>
-              <img src={item.img} alt={item.title} />
-              <span className="insight-date">{item.date}</span>
-              <h4>{item.title}</h4>
-              <a href="#" className="link-arrow teal">
-                Read More <IconArrowRight size={14} />
-              </a>
-            </article>
-          ))}
-          <a href="#" className="link-arrow view-all">
-            View all insights <IconArrowRight />
-          </a>
-        </div>
-      </section> */}
-
       {/* CTA */}
       <section className="cta" id="cta">
         <h2>
@@ -1433,69 +1688,7 @@ function App() {
         </button>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <img src={logo} alt="Esperer Group" className="brand-logo" />
-            <p>
-              A global oncology innovation enterprise, working across
-              prevention, early detection, treatment, nutrition and enabling
-              technology.
-            </p>
-          </div>
-          <div className="footer-col">
-            <h5>COMPANY</h5>
-            <a href="#">About Us</a>
-            <a href="#">Leadership</a>
-            <a href="#">Careers</a>
-            <a href="#">Contact</a>
-          </div>
-          <div className="footer-col">
-            <h5>OUR BUSINESSES</h5>
-            <a href="#">Esperer Nutrition</a>
-            <a href="#">Esperer BioResearch</a>
-            <a href="#">Health Voitho Technologies</a>
-            <a href="#">Salt Lick</a>
-            <a href="#">Esperer Global LLC</a>
-            <a href="#">Esperer Nutrition Australia</a>
-          </div>
-          <div className="footer-col">
-            <h5>RESOURCES</h5>
-            <a href="#">Awards &amp; Recognition</a>
-            <a href="#">Clinical Research</a>
-            <a href="#">Insights</a>
-          </div>
-          <div className="footer-col footer-contact">
-            <h5>CONTACT</h5>
-            <p>
-              <IconMapPin /> Mumbai (HQ):
-              <br />
-              Gundecha Onclave, Sakinaka, Andheri East
-            </p>
-            <p>
-              <IconMail /> info@esperernutrition.com
-            </p>
-            <p>
-              <IconPhone /> Toll Free: 1800 890 2671
-            </p>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <div className="socials">
-            <a href="#">
-              <IconLinkedIn />
-            </a>
-            <a href="#">
-              <IconX />
-            </a>
-            <a href="#">
-              <IconInstagram />
-            </a>
-          </div>
-          <p>© 2026 ESPERER GROUP. ALL RIGHTS RESERVED.</p>
-        </div>
-      </footer>
+      <SiteFooter businesses={businessData} />
     </div>
   );
 }
