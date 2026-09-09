@@ -1789,8 +1789,8 @@ html {
 
 /* ---------------- Footer ---------------- */
 .footer {
-  background: #fff;
-  color: #000;
+  background: #38b1b3;
+  color: #fff;
   padding: 60px 48px 24px;
 }
 .footer-top {
@@ -1810,7 +1810,7 @@ html {
   font-size: 12.5px;
   line-height: 1.7;
   max-width: 260px;
-  color: rgba(0, 0, 0, 0.55);
+  color: #fff;
 }
 .footer-col {
   display: flex;
@@ -1822,15 +1822,15 @@ html {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #000;
+  color: #fff;
   margin-bottom: 6px;
 }
 .footer-col a {
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #fff;
 }
 .footer-col a:hover {
-  color: #000;
+  color: #fff;
 }
 .footer-contact p {
   display: flex;
@@ -1849,7 +1849,7 @@ html {
 .footer-col a,
 .footer-contact p,
 .footer-brand p {
-  color: #000;
+  color: #fff;
 }
 .footer-bottom {
   display: flex;
@@ -1870,7 +1870,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: #fff;
 }
 
 /* ---------------- Responsive ---------------- */
@@ -2938,6 +2938,41 @@ html {
   object-fit: cover;
   object-position: center center;
 }
+.reference-slider-image-animated {
+  transform-origin: 70% 50%;
+  will-change: transform, filter;
+}
+.reference-slider-slide.is-active .reference-slider-image-animated {
+  animation:
+    reference-molecule-float 5.5s ease-in-out infinite,
+    reference-molecule-pulse 3.25s ease-in-out infinite;
+}
+@keyframes reference-molecule-float {
+  0% {
+    transform: translate3d(2px, 6px, 0) rotate(-0.25deg) scale(1.02);
+  }
+  25% {
+    transform: translate3d(-7px, -6px, 0) rotate(0.35deg) scale(1.028);
+  }
+  50% {
+    transform: translate3d(-16px, -12px, 0) rotate(0.9deg) scale(1.035);
+  }
+  75% {
+    transform: translate3d(-7px, -5px, 0) rotate(0.35deg) scale(1.028);
+  }
+  100% {
+    transform: translate3d(2px, 6px, 0) rotate(-0.25deg) scale(1.02);
+  }
+}
+@keyframes reference-molecule-pulse {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.04) saturate(1.07);
+  }
+}
 .reference-slider-copy {
   position: relative;
   z-index: 1;
@@ -3144,6 +3179,13 @@ html {
   .reference-slider-dots button {
     width: 9px;
     height: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-slider-image-animated {
+    animation: none;
+    transform: none;
+    filter: none;
   }
 }
 .businesses.businesses-cards-section .businesses-cards-copy > p {

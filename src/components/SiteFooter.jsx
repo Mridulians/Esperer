@@ -1,4 +1,4 @@
-import logo from "../assets/logo_with_black_text.png";
+import logo from "../assets/logo_with_white_text.png";
 
 const Icon = ({ children }) => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
