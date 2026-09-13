@@ -2984,6 +2984,10 @@ html {
     grid-template-columns: 1fr;
   }
 
+  .feature {
+    padding-left: 5px !important;
+  }
+
   .reference-slider-copy h2 {
     font-size: 28px !important;
     line-height: 1.2 !important;
@@ -2991,6 +2995,18 @@ html {
 
   .reference-slider-controls {
     bottom: 120px !important;
+  }
+
+  .business-detail-hero {
+    min-height: 0 !important; 
+  }
+
+  .business-detail-hero h1 {
+    font-size: 28px !important;
+  }
+
+  .business-detail-eyebrow {
+    font-size: 12px !important;
   }
 }
 
