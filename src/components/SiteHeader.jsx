@@ -3,10 +3,10 @@ import logo from "../assets/logo_with_black_text.png";
 
 const navLinks = [
   { label: "Home", id: "home" },
-  { label: "Our Businesses", id: "businesses" },
   { label: "About Us", id: "about" },
+  { label: "Breakthroughs", id: "breakthroughs" },
+  { label: "Our Businesses", id: "businesses" },
   { label: "Leadership", id: "leadership" },
-  { label: "Contact Us", id: "contact" },
 ];
 
 const IconArrowRight = ({ size = 16 }) => (
@@ -38,7 +38,11 @@ const IconGlobe = () => (
   </svg>
 );
 
-export default function SiteHeader({ activeSection = "home", onNavigate, scrollProgress = 0 }) {
+export default function SiteHeader({
+  activeSection = "home",
+  onNavigate,
+  scrollProgress = 0,
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleClick = (event, sectionId) => {
@@ -52,18 +56,25 @@ export default function SiteHeader({ activeSection = "home", onNavigate, scrollP
   return (
     <>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${scrollProgress}%` }} />
+        <div
+          className="progress-fill"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </div>
+
       <div className="utility-bar">
         <p>
           A global oncology innovation enterprise, working across prevention,
           early detection, treatment, nutrition and enabling technology.
         </p>
         <div className="utility-right">
-          <span>India&nbsp;·&nbsp;UAE&nbsp;·&nbsp;Australia&nbsp;·&nbsp;USA</span>
+          <span>
+            India&nbsp;·&nbsp;UAE&nbsp;·&nbsp;Australia&nbsp;·&nbsp;USA
+          </span>
           <IconGlobe />
         </div>
       </div>
+      
       <header className={`navbar ${mobileMenuOpen ? "menu-open" : ""}`}>
         <div className="brand">
           <a href="/">
@@ -82,7 +93,10 @@ export default function SiteHeader({ activeSection = "home", onNavigate, scrollP
             </a>
           ))}
         </nav>
-        <a href={onNavigate ? "#businesses" : "/#businesses"} className="btn btn-teal">
+        <a
+          href={onNavigate ? "#businesses" : "/#businesses"}
+          className="btn btn-teal"
+        >
           Explore Our Businesses <IconArrowRight />
         </a>
         <button
