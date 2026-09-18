@@ -15,6 +15,7 @@ export const businessData = [
     country: "India",
     description:
       "Globally patented onco-nutrition portfolio; first to launch cancer condition- and stage-specific nutrition, designed to work alongside treatment for optimal outcomes.",
+      website: "https://www.esperernutrition.com",
   },
   {
     id: "saltlick",
@@ -24,6 +25,7 @@ export const businessData = [
     country: "India",
     description:
       "Risk assessment and early detection. A patented system that performs cancer risk assessment well in advance through simple screening.",
+       website: "https://www.saltlick.com",
   },
   {
     id: "bioresearch",
@@ -33,6 +35,7 @@ export const businessData = [
     country: "India",
     description:
       "Bringing innovative anti-cancer drugs to the patients who need them.",
+       website: "https://www.espererbioresearch.com",
   },
   {
     id: "technologies",
@@ -42,6 +45,7 @@ export const businessData = [
     country: "India",
     description:
       "Medtech — medical devices, technology and machine learning applied to healthcare.",
+       website: "https://www.healthvoitho.com",
   },
   {
     id: "global",
@@ -51,6 +55,7 @@ export const businessData = [
     country: "Dubai, UAE",
     description:
       "The Group's international access and commercialization arm, extending Esperer's science to healthcare partners worldwide.",
+       website: "https://www.esperernutrition.com",
   },
   {
     id: "australia",
@@ -60,6 +65,7 @@ export const businessData = [
     country: "Australia",
     description:
       "Extending Esperer Nutrition's globally patented onco-nutrition science to patients across Australia and Oceania.",
+       website: "https://www.esperernutrition.com",
   },
   {
     id: "united-states",
@@ -69,6 +75,7 @@ export const businessData = [
     country: "United States",
     description:
       "Extending Esperer Nutrition's globally patented onco-nutrition science to patients across the United States.",
+       website: "https://www.esperernutrition.com",
   },
 ];
 
@@ -84,11 +91,13 @@ const createBusiness = (
   whyFirst,
   whySecond,
   cardDescription,
+  website,
 ) => ({
   name,
   slug: name.toLowerCase().replaceAll(" ", "-"),
   category,
   logo,
+  website,
   detail: {
     heroColor: "#38b1b3",
     eyebrow: category,
@@ -116,6 +125,7 @@ export const showcaseBusinesses = [
     "Malnutrition and treatment intolerance are significant factors in oncology outcomes.",
     "This space treats nutrition as its own discipline — specific to cancer type, stage and treatment phase.",
     "Holds a globally patented portfolio in onco-nutrition.",
+    "https://www.esperernutrition.com",
   ),
   createBusiness(
     "Esperer BioResearch",
@@ -129,6 +139,7 @@ export const showcaseBusinesses = [
     "Every advance in oncology research means little until it reaches an actual patient as real medicine.",
     "This space researches and brings forward innovative anti-cancer pharmaceuticals.",
     "Brings innovative anti-cancer drugs to patients.",
+    "https://www.espererbioresearch.com",
   ),
   createBusiness(
     "Health Voitho Technologies",
@@ -142,6 +153,7 @@ export const showcaseBusinesses = [
     "Cancer care depends on technology at every stage.",
     "This space applies medical devices and machine learning directly to healthcare delivery.",
     "Operates in the medtech space.",
+    "https://www.healthvoitho.com",
   ),
   createBusiness(
     "Salt Lick Healthcare",
@@ -155,5 +167,6 @@ export const showcaseBusinesses = [
     "Stage at detection is one of the strongest predictors of survival.",
     "This space brings risk assessment and early detection together.",
     "A patented system that performs cancer risk assessment well in advance.",
+    "https://www.saltlick.com",
   ),
 ];

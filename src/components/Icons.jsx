@@ -191,3 +191,41 @@ export const IconMapPin = () => (
     <circle cx="12" cy="9.5" r="2.3" />
   </svg>
 );
+
+
+export function IconAxis() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <circle cx="6" cy="6" r="2.4" />
+      <circle cx="18" cy="6" r="2.4" />
+      <circle cx="12" cy="18" r="2.4" />
+      <path d="M8.1 7.2 10.4 16M15.9 7.2 13.6 16M8.4 6h7.2" />
+    </svg>
+  );
+}
+
+export function IconRadar() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <path d="M12 12 18 6" />
+    </svg>
+  );
+}
+
+export function IconPulse() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <path d="M3 12h4l2-6 4 12 2-6h6" />
+    </svg>
+  );
+}
+
+export function IconClose() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M4 4l16 16M20 4 4 20" />
+    </svg>
+  );
+}

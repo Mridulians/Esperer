@@ -74,7 +74,8 @@ html {
   justify-content: center;
   gap: 10px;
   font-family: var(--sans);
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.03em;
   padding: 12px 18px 11px;
@@ -118,7 +119,7 @@ html {
 }
 .link-arrow.teal {
   color: var(--teal);
-  border-color: var(--teal);
+  /* border-color: var(--teal); */
   font-size: 12px;
 }
 
@@ -166,7 +167,8 @@ html {
 }
 .brand-logo {
   /* height: 26px; */
-  height: 40px;
+  /* height: 40px; */
+  height: 50px;
   width: auto;
 }
 .nav-links {
@@ -174,7 +176,7 @@ html {
   align-items: center;
   gap: 34px;
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--text-dark);
 }
@@ -233,7 +235,8 @@ html {
   color: var(--teal);
 }
 .hero-desc {
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 18px;
   line-height: 1.7;
   color: var(--text-body);
   max-width: 440px;
@@ -281,6 +284,128 @@ html {
   overflow: hidden;
   background: #ffffff;
 }
+
+/* ---------------- HeroSection1: editable three-column layout ---------------- */
+/* Every new style line is documented; these rules leave the other hero unchanged. */
+.hero.hero-business-layout { /* Scope the three-column grid to HeroSection1. */
+  display: grid; /* Keep this hero a grid even when shared mobile rules use flex. */
+  grid-template-columns: minmax(0, 38fr) minmax(0, 37fr) minmax(0, 25fr); /* Move the molecule toward screen center and reserve the right column for businesses. */
+  align-items: center; /* Vertically center the copy, molecule, and business column. */
+} /* End the desktop hero layout. */
+.hero-business-layout .hero-copy { /* Adapt the existing copy to its narrower column. */
+  min-width: 0; /* Allow the copy to shrink without overflowing the grid. */
+  padding: 60px 16px 60px clamp(24px, 3.3vw, 48px); /* Preserve the outer gutter while freeing space beside the molecule. */
+} /* End copy spacing. */
+.hero-business-layout .hero-copy h1 { /* Scale the heading for the three-column layout. */
+  font-size: clamp(32px, 3.5vw, 56px); /* Adjust these values to change the minimum, fluid, and maximum title size. */
+} /* End title sizing. */
+.hero-business-layout .hero-copy h1 span { /* Permit long title lines to fit smaller columns. */
+  white-space: normal; /* Wrap rather than overlap the molecule or logos. */
+} /* End title wrapping. */
+.hero-business-layout .hero-image { /* Keep the molecule inside the middle grid column. */
+  min-width: 0; /* Prevent the canvas from widening the column. */
+} /* End molecule column sizing. */
+.hero-business-layout .hero-image, /* Apply the same dimensions to the animation wrapper. */
+.hero-business-layout .esperer-globe { /* Apply the same dimensions to the canvas host. */
+  min-height: 0; /* Remove the shared hero's fixed minimum animation height. */
+  height: clamp(280px, 36vw, 540px); /* Scale the molecule area with the viewport without excessive height. */
+} /* End animation dimensions. */
+.hero-business-layout .hero-businesses { /* Style the new right-hand business column. */
+  min-width: 0; /* Allow long names to wrap within the column. */
+  padding: 32px clamp(20px, 2.5vw, 40px) 32px 18px; /* Control the top, right, bottom, and left column spacing. */
+  border-left: 1px solid rgba(56, 177, 179, 0.2); /* Separate the business links from the molecule with a subtle teal rule. */
+} /* End business column styling. */
+.hero-business-layout .hero-businesses-heading { /* Style the business column label. */
+  margin: 0 0 18px; /* Add space between the heading and first business link. */
+  color: var(--orange); /* Match the site's orange accent color. */
+  font-family: var(--sans); /* Use the existing sans-serif font. */
+  font-size: 12px; /* Keep the column label smaller than business names. */
+  font-weight: 700; /* Emphasize the column heading. */
+  letter-spacing: 0.12em; /* Space the uppercase heading letters. */
+  text-transform: uppercase; /* Display the heading in uppercase. */
+} /* End business heading styling. */
+.hero-business-layout .hero-business-list { /* Arrange the four business links vertically. */
+  display: grid; /* Use grid spacing between business cards. */
+  gap: 12px; /* Adjust the vertical distance between businesses. */
+  margin: 0; /* Remove the browser's default list margin. */
+  padding: 0; /* Remove the browser's default list indentation. */
+  list-style: none; /* Hide list bullets beside logos. */
+} /* End business list styling. */
+.hero-business-layout .hero-business-link { /* Make the whole logo-and-name card clickable. */
+  display: grid; /* Align the logo, business name, and arrow in three tracks. */
+  grid-template-columns: 76px minmax(0, 1fr) 14px; /* Set the logo width while allowing the business name to wrap. */
+  align-items: center; /* Center the logo, text, and arrow vertically. */
+  gap: 10px; /* Set the spacing between logo, name, and arrow. */
+  min-height: 88px; /* Give all four business links a consistent minimum height. */
+  height: 100%; /* Keep cards equal in height when displayed side by side. */
+  padding: 12px 10px; /* Provide a comfortable clickable area around each business. */
+  border: 1px solid rgba(56, 177, 179, 0.18); /* Outline each card with a light teal border. */
+  border-radius: 8px; /* Round the business card corners. */
+  background: #ffffff; /* Keep logos on a clean white background. */
+  color: var(--text-dark); /* Keep business names readable in the site's text color. */
+  text-decoration: none; /* Remove link underlines from the cards. */
+  transition: border-color 0.2s ease, background-color 0.2s ease; /* Smooth the hover color changes without moving the cards. */
+} /* End clickable card styling. */
+.hero-business-layout .hero-business-link:hover { /* Highlight a business when pointed at. */
+  border-color: var(--teal); /* Strengthen the border on hover. */
+  background-color: rgba(56, 177, 179, 0.05); /* Add a subtle teal hover tint. */
+} /* End hover styling. */
+.hero-business-layout .hero-business-link:focus-visible { /* Clearly identify the business selected by keyboard. */
+  outline: 2px solid var(--teal); /* Add a visible keyboard focus ring. */
+  outline-offset: 3px; /* Separate the focus ring from the card border. */
+} /* End keyboard focus styling. */
+.hero-business-layout .hero-business-logo { /* Display each existing logo without cropping. */
+  display: block; /* Remove inline-image baseline spacing. */
+  width: 76px; /* Match the logo track width in the clickable card. */
+  height: 58px; /* Give differently shaped logos a consistent display area. */
+  object-fit: contain; /* Preserve each logo's original aspect ratio. */
+} /* End logo styling. */
+.hero-business-layout .hero-business-name { /* Style the visible business name beside its logo. */
+  font-family: var(--sans); /* Match the site's sans-serif typography. */
+  font-size: 12px; /* Fit business names comfortably in the right-hand column. */
+  font-weight: 600; /* Make each business name easy to scan. */
+  line-height: 1.5; /* Keep wrapped names readable. */
+  overflow-wrap: anywhere; /* Prevent unusually long words from overflowing the card. */
+} /* End business name styling. */
+.hero-business-layout .hero-business-link > svg { /* Style the clickable card's directional arrow. */
+  width: 14px; /* Match the arrow track width. */
+  height: 14px; /* Keep the arrow proportions square. */
+  color: var(--teal); /* Use the site's teal accent for the arrow. */
+} /* End arrow styling. */
+@media (max-width: 1100px) { /* Move business links below the hero when three columns become crowded. */
+  .hero.hero-business-layout { /* Override only HeroSection1 at tablet widths. */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Keep copy and molecule side by side in equal columns. */
+  } /* End tablet hero grid. */
+  .hero-business-layout .hero-businesses { /* Place the business area across the entire second row. */
+    grid-column: 1 / -1; /* Span both copy and molecule columns. */
+    padding: 24px; /* Give the business area consistent tablet gutters. */
+    border-left: 0; /* Remove the desktop vertical separator. */
+    border-top: 1px solid rgba(56, 177, 179, 0.2); /* Separate the business row from the hero above it. */
+  } /* End tablet business area. */
+  .hero-business-layout .hero-business-list { /* Arrange tablet business cards in two columns. */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Display all four businesses in a two-by-two grid. */
+  } /* End tablet business list. */
+} /* End tablet breakpoint. */
+@media (max-width: 640px) { /* Stack the hero content on mobile screens. */
+  .hero.hero-business-layout { /* Set a single-column mobile hero. */
+    grid-template-columns: minmax(0, 1fr); /* Show copy, molecule, then businesses from top to bottom. */
+  } /* End mobile hero grid. */
+  .hero-business-layout .hero-copy { /* Tighten copy spacing on small screens. */
+    padding: 42px 24px 20px; /* Keep readable side gutters and reduce space before the molecule. */
+  } /* End mobile copy spacing. */
+  .hero-business-layout .hero-image, /* Resize the animation wrapper for mobile. */
+  .hero-business-layout .esperer-globe { /* Resize the canvas host for mobile. */
+    height: min(90vw, 380px); /* Keep the molecule centered in a viewport-sized area. */
+  } /* End mobile animation sizing. */
+  .hero-business-layout .hero-business-list { /* Keep business names readable on narrow phones. */
+    grid-template-columns: minmax(0, 1fr); /* Show one full-width clickable business per row. */
+  } /* End mobile business list. */
+} /* End mobile breakpoint. */
+@media (prefers-reduced-motion: reduce) { /* Respect visitors who prefer less interface animation. */
+  .hero-business-layout .hero-business-link { /* Disable new card effects for reduced-motion users. */
+    transition: none; /* Apply hover colors instantly rather than animating them. */
+  } /* End reduced-motion card styling. */
+} /* End reduced-motion preference. */
 
 /* ---------------- Business showcase ---------------- */
 .business-showcase {
@@ -669,7 +794,8 @@ html {
   margin-bottom: 20px;
 }
 .about-copy > p {
-  font-size: 14.5px;
+  /* font-size: 14.5px; */
+  font-size: 18px;
   line-height: 1.75;
   color: var(--text-body-light);
   max-width: 560px;
@@ -703,19 +829,19 @@ html {
 }
 .feature h4 {
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   margin-bottom: 8px;
   color: #000000;
 }
 .feature p {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
   color: #000000;
 }
 
 /* ---------------- Breakthroughs ---------------- */
-.breakthroughs {
+/* .breakthroughs {
   background: #ffffff;
   padding: 64px 38px 28px;
   color: var(--text-dark);
@@ -872,6 +998,329 @@ html {
 }
 .breakthrough-note .link-arrow {
   white-space: nowrap;
+} */
+
+/* ===== Breakthroughs section ===== */
+.breakthroughs {
+  padding: 80px 24px;
+  background: #ffffff;
+}
+
+.breakthroughs-heading {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.eyebrow-orange {
+  color: #f2792a;
+}
+
+.breakthroughs-heading h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: #16181d;
+  margin: 0 0 16px;
+}
+
+.breakthroughs-heading p {
+  color: #5b6470;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Grid: 3 cols desktop / 2 tablet / 1 mobile */
+.breakthrough-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .breakthrough-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .breakthrough-grid {
+    grid-template-columns: 1fr;
+  }
+  .breakthroughs-heading p {
+    font-size: 16px;
+  }
+}
+
+.breakthrough-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e7e9ed;
+  border-radius: 16px;
+  padding: 28px;
+  background: #ffffff;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.breakthrough-card:hover {
+  box-shadow: 0 8px 24px rgba(16, 24, 32, 0.06);
+  transform: translateY(-2px);
+}
+
+.breakthrough-card-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+}
+
+.breakthrough-card.no-image .breakthrough-card-main {
+  flex-direction: column;
+}
+
+.breakthrough-card-main img {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .breakthrough-card-main {
+    flex-direction: column;
+  }
+  .breakthrough-card-main img {
+    width: 100%;
+    height: 160px;
+  }
+}
+
+.breakthrough-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.breakthrough-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #eaf6f5;
+  color: #159a96;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.breakthrough-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #159a96;
+  margin-bottom: 8px;
+}
+
+.breakthrough-copy h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #16181d;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+.breakthrough-rule {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #e7e9ed;
+  margin-bottom: 12px;
+}
+
+.breakthrough-copy p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5b6470;
+  margin: 0;
+}
+
+/* Clamp long descriptions on the card; full text shown in modal */
+.breakthrough-text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.breakthrough-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #e7e9ed;
+  border: 1px solid #e7e9ed;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.breakthrough-features span {
+  background: #ffffff;
+  padding: 12px 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #16181d;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .breakthrough-features {
+    grid-template-columns: 1fr;
+  }
+  .breakthrough-copy p {
+    font-size: 14px;
+  }
+}
+
+.btn.btn-teal.breakthrough-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #159a96;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn.btn-teal.breakthrough-button:hover {
+  background: #117d7a;
+}
+
+.breakthrough-note {
+  max-width: 1000px;
+  margin: 48px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f7fafa;
+  border: 1px solid #e7e9ed;
+  border-radius: 14px;
+  padding: 24px;
+  color: #159a96;
+}
+
+.breakthrough-note p {
+  flex: 1;
+  color: #5b6470;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.link-arrow.teal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #159a96;
+  font-weight: 600;
+  font-size: 14px;
+  /* text-decoration: underline; */
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .breakthrough-note {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ===== Modal ===== */
+.breakthrough-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 32, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.breakthrough-modal {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.breakthrough-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #f7fafa;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #16181d;
+}
+
+.breakthrough-modal-close:hover {
+  background: #e7e9ed;
+}
+
+.breakthrough-modal-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.breakthrough-modal p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5b6470;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 480px) {
+  .breakthrough-modal {
+    padding: 24px;
+    max-height: 90vh;
+  }
 }
 
 /* ---------------- Esperer at a glance ---------------- */
@@ -936,7 +1385,7 @@ html {
 }
 .glance-item p {
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.55;
 }
 
@@ -972,6 +1421,7 @@ html {
   min-height: 250px;
   padding: 20px 18px 18px;
   border: 1px solid rgba(14, 107, 110, 0.2);
+  border-radius: 12px;
   transition:
     box-shadow 0.25s ease,
     border-color 0.25s ease;
@@ -1024,7 +1474,7 @@ html {
 .step-sub img {
   display: block;
   width: 100%;
-  height: 64px;
+  height: 75px;
   margin: 4px 0 10px;
   padding: 5px 8px;
   object-fit: contain;
@@ -1032,8 +1482,12 @@ html {
   border-radius: 2px;
 }
 .step-business-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: var(--teal);
-  border-bottom: 1px solid rgba(14, 107, 110, 0.35);
+  /* border-bottom: 1px solid rgba(14, 107, 110, 0.35); */
   font-weight: 500;
   transition:
     border-color 0.2s ease,
@@ -1794,21 +2248,24 @@ html {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.15fr 1fr 1.25fr;
-  gap: 28px;
+  grid-template-columns: 1.5fr 1fr 1.15fr 1.25fr;
+  /* gap: 28px; */
+  gap: 45px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footer-brand .brand-logo {
   /* filter: brightness(0) invert(1); */
   margin-bottom: 16px;
-  height: 32px;
+  /* height: 32px; */
+  height: 50px;
   width: auto;
 }
 .footer-brand p {
-  font-size: 12.5px;
+  /* font-size: 12.5px; */
+  font-size: 18px;
   line-height: 1.7;
-  max-width: 260px;
+  /* max-width: 260px; */
   color: #fff;
 }
 .footer-col {
@@ -1818,19 +2275,21 @@ html {
 }
 .footer-col h5 {
   font-family: var(--sans);
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #fff;
   margin-bottom: 6px;
 }
 .footer-col a {
-  font-size: 13px;
+  /* font-size: 13px; */
+  font-size: 16px;
   color: #fff;
 }
-.footer-col a:hover {
+/* .footer-col a:hover {
   color: #fff;
-}
+} */
 .footer-contact p {
   display: flex;
   align-items: flex-start;
@@ -1855,15 +2314,18 @@ html {
   align-items: center;
   justify-content: space-between;
   padding-top: 24px;
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 16px;
 }
 .socials {
   display: flex;
   gap: 14px;
 }
 .socials a {
-  width: 30px;
-  height: 30px;
+  /* width: 30px; */
+  /* height: 30px; */
+  width: 50px;
+  height: 50px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   display: flex;
@@ -1944,22 +2406,22 @@ html {
   .breakthroughs-heading h2 {
     font-size: 28px;
   }
-  .breakthrough-grid {
+  /* .breakthrough-grid {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
   .breakthrough-card-main {
     grid-template-columns: minmax(0, 1fr) 150px;
   }
-  .breakthrough-copy {
+  /* .breakthrough-copy {
     padding-left: 78px;
-  }
+  } */
   .breakthrough-mark {
     width: 58px;
     height: 58px;
   }
-  .breakthrough-copy h3 {
+  /* .breakthrough-copy h3 {
     font-size: 22px;
-  }
+  } */
   .breakthrough-note {
     grid-template-columns: 46px minmax(0, 1fr);
     gap: 14px;
@@ -2039,9 +2501,9 @@ html {
     padding: 58px 24px 36px;
   }
 
-  .breakthrough-grid {
+  /* .breakthrough-grid {
     grid-template-columns: 1fr;
-  }
+  } */
   .glance {
     padding-left: 24px;
     padding-right: 24px;
@@ -2479,9 +2941,9 @@ html {
     scroll-padding-top: 104px;
   }
 
-  .utility-bar {
+  /* .utility-bar {
     display: none;
-  }
+  } */
 
   .utility-bar {
     position: relative;
@@ -2490,12 +2952,14 @@ html {
     font-size: 9px;
   }
   .utility-bar > p {
-    max-width: 72%;
-    line-height: 1.35;
+    display: none;
   }
+
   .utility-right {
     gap: 5px;
-    font-size: 9px;
+    font-size: 12px;
+    width: 100%;
+    justify-content: center;
   }
   .utility-right span {
     display: none;
@@ -2513,7 +2977,8 @@ html {
     box-shadow: 0 12px 28px rgba(22, 35, 42, 0.14);
   }
   .brand-logo {
-    height: 32px;
+    /* height: 32px; */
+    height: 45px;
   }
   .navbar .brand {
     order: 1;
@@ -2592,7 +3057,7 @@ html {
   .navbar.menu-open .nav-links {
     max-height: 360px;
     padding: 10px 0 4px;
-    border-top-color: rgba(56, 177, 179, 0.16);
+    /* border-top-color: rgba(56, 177, 179, 0.16); */
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
@@ -2624,7 +3089,7 @@ html {
     white-space: normal;
   }
   .hero-desc {
-    font-size: 14px;
+    font-size: 16px;
   }
   .hero-copy > .btn {
     width: 100%;
@@ -2634,6 +3099,11 @@ html {
     min-height: 0;
     height: min(94vw, 430px);
   }
+
+  .about-copy > p {
+    /* font-size: 14.5px; */
+    font-size: 16px;
+}
 
   .showcase-redesign {
     padding: 42px 24px 30px;
@@ -2717,16 +3187,16 @@ html {
     height: 52px;
     margin-bottom: 14px;
   }
-  .breakthrough-copy h3 {
+  /* .breakthrough-copy h3 {
     max-width: none;
-  }
+  } */
   .breakthrough-features {
     grid-template-columns: 1fr;
   }
-  .breakthrough-features span + span {
+  /* .breakthrough-features span + span {
     border-top: 1px solid rgba(14, 107, 110, 0.12);
     border-left: 0;
-  }
+  } */
   .breakthrough-note {
     grid-template-columns: 34px minmax(0, 1fr);
     padding: 16px;
@@ -2736,11 +3206,11 @@ html {
     height: 28px;
   }
   .breakthrough-note p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .breakthrough-note .link-arrow {
     grid-column: 1 / -1;
-    margin-left: 48px;
+    /* margin-left: 48px; */
     white-space: normal;
   }
 
@@ -2996,7 +3466,7 @@ html {
   }
 
   .business-detail-hero {
-    min-height: 0 !important; 
+    min-height: 0 !important;
   }
 
   .business-detail-hero h1 {

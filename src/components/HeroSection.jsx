@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { IconArrowRight } from "./Icons.jsx";
+import KnowledgePartnerStrip from "./KnowledgePartnerStrip.jsx";
 
 function EspererGlobe() {
   const globeRef = useRef(null);
@@ -39,12 +40,13 @@ export default function HeroSection() {
           early detection, treatment, nutrition and enabling technology.
         </p>
         <a href="#businesses" className="btn btn-teal">
-          Explore Our Businesses <IconArrowRight />
+          Get in Touch <IconArrowRight />
         </a>
       </div>
       <div className="hero-image">
         <EspererGlobe />
       </div>
+      <KnowledgePartnerStrip />
     </section>
   );
 }

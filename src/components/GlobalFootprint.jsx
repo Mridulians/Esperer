@@ -27,7 +27,7 @@ function AnimatedNumber({ value, suffix = "", duration = 1200 }) {
 export default function GlobalFootprint() {
   const stats = [
     [12, "+", "Countries", "Global footprint across regulated markets"],
-    [6, "+", "Global Patents", "In oncology & molecular nutrition"],
+    [7, "+", "Global Patents", "In oncology & molecular nutrition"],
     [1, "", "World's First", "Stage-specific onco-nutrition therapy."],
   ];
   return (

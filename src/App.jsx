@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import SiteHeader from "./components/SiteHeader.jsx";
 import SiteFooter from "./components/SiteFooter.jsx";
 import HeroSection from "./components/HeroSection.jsx";
+import HeroSection1 from "./components/HeroSection1.jsx";
+import BusinessLogoStrip from "./components/BusinessLogoStrip.jsx";
 import Slider from "./components/Slider.jsx";
 import About from "./components/About.jsx";
 import Breakthroughs from "./components/Breakthroughs.jsx";
@@ -9,7 +11,9 @@ import Glance from "./components/Glance.jsx";
 import Continuum from "./components/Continuum.jsx";
 import Businesses from "./components/Businesses.jsx";
 import GlobalFootprint from "./components/GlobalFootprint.jsx";
+import CredibilityFootprint from "./components/CredibilityFootprint.jsx";
 import Leadership from "./components/Leadership.jsx";
+
 import BusinessDetailPage from "./pages/BusinessDetailPage.jsx";
 import { businessData, showcaseBusinesses } from "./data/pageData.js";
 import nutritionLogo from "./assets/esperer_nutrition.png";
@@ -27,9 +31,9 @@ function LandingPage() {
     const sectionIds = [
       "home",
       "about",
-      "breakthroughs",
-      "continuum",
+      // "continuum",
       "businesses",
+      "breakthroughs",
       "footprint",
       "leadership",
       "cta",
@@ -65,10 +69,10 @@ function LandingPage() {
         scrollProgress={scrollProgress}
       />
       <HeroSection />
-      <Slider businesses={showcaseBusinesses} />
+      <HeroSection1 />
+     
+      {/* <Slider businesses={showcaseBusinesses} /> */}
       <About />
-      <Breakthroughs />
-      <Glance />
       <Continuum
         logos={{
           nutrition: nutritionLogo,
@@ -77,8 +81,12 @@ function LandingPage() {
           saltLick: saltLickLogo,
         }}
       />
-      <Businesses businesses={businessData} />
-      <GlobalFootprint />
+      <Breakthroughs />
+      {/* <Glance /> */}
+      {/* <Businesses businesses={businessData} /> */}
+      {/* <GlobalFootprint /> */}
+       <BusinessLogoStrip />
+      <CredibilityFootprint />
       <Leadership />
       <SiteFooter businesses={businessData} />
     </div>

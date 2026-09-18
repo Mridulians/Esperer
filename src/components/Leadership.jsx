@@ -20,7 +20,7 @@ export default function Leadership() {
         <span className="eyebrow eyebrow-orange">LEADERSHIP</span>
         <h2>Dr. Raktim Chattopadhyay</h2>
         <p className="leadership-role">Founder, Esperer Group</p>
-        <div className="leadership-body">
+        {/* <div className="leadership-body">
           <div className="leadership-quote">
             <IconQuote />
             <p>
@@ -53,7 +53,7 @@ export default function Leadership() {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,0 +1,135 @@
+.knowledge-partner-strip {
+  /* grid-column: 1 / -1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 82px;
+  margin: 24px clamp(24px, 3.77vw, 64px) 0;
+  padding: 20px clamp(24px, 2.75vw, 46px) 20px clamp(24px, 3.65vw, 61px);
+  border-radius: 9px;
+  background: #f1f9fa;
+  font-family: var(--sans); */
+
+  grid-column: 1 / -1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 70px;
+  margin: 5px clamp(24px, 3.77vw, 64px) 25px;
+  padding: 10px clamp(24px, 2.75vw, 46px) 10px clamp(24px, 3.65vw, 61px);
+  border-radius: 9px;
+  background: #f1f9fa;
+  font-family: var(--sans);
+}
+
+.knowledge-partner-identity,
+.knowledge-partner-brand,
+.knowledge-partner-link,
+.knowledge-partner-icons {
+  display: flex;
+  align-items: center;
+}
+
+.knowledge-partner-identity {
+  gap: 36px;
+  min-width: 0;
+}
+
+.knowledge-partner-brand {
+  gap: 8px;
+  flex-shrink: 0;
+  color: #193e65;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.knowledge-partner-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.knowledge-partner-divider {
+  width: 1px;
+  height: 36px;
+  flex-shrink: 0;
+  background: #d6edef;
+}
+
+.knowledge-partner-label {
+  color: #838f9e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.knowledge-partner-link {
+  flex-shrink: 0;
+  gap: 6px;
+  min-height: 40px;
+  color: #20b2b8;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.knowledge-partner-icons {
+  gap: 10px;
+}
+
+.knowledge-partner-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.knowledge-partner-link:focus-visible {
+  outline: 2px solid #20b2b8;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+@media (max-width: 700px) {
+  .knowledge-partner-strip {
+    /* flex-wrap: wrap; */
+    gap: 12px;
+    padding: 18px 20px;
+    margin: 25px clamp(24px, 3.77vw, 64px) 25px;
+  }
+
+  .knowledge-partner-identity {
+    gap: 16px;
+  }
+
+  .knowledge-partner-brand {
+    font-size: 20px;
+  }
+
+  .knowledge-partner-label {
+    font-size: 14px;
+  }
+
+  .knowledge-partner-link {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .knowledge-partner-identity {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .knowledge-partner-divider {
+    display: none;
+  }
+
+  .knowledge-partner-label {
+    flex-basis: 100%;
+  }
+}

@@ -13,13 +13,13 @@ import {
 
 export default function Glance() {
   const stats = [
-    [
-      <IconGlobe />,
-      "12+ Countries",
-      "Global footprint across regulated markets",
-    ],
-    [<IconShield />, "6 Global Patents", "In oncology and molecular nutrition"],
-    [<IconFlask />, "World's First", "Stage-specific onco-nutrition therapy"],
+    // [
+    //   <IconGlobe />,
+    //   "12+ Countries",
+    //   "Global footprint across regulated markets",
+    // ],
+    // [<IconShield />, "6 Global Patents", "In oncology and molecular nutrition"],
+    // [<IconFlask />, "World's First", "Stage-specific onco-nutrition therapy"],
     [<IconMonitor />, "1M+ Dosages", "Delivered to patients and growing"],
     [<IconTarget />, "Multicentre Trials", "Validated across geographies"],
     [
