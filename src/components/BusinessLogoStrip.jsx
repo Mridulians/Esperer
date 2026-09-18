@@ -1,5 +1,8 @@
 import aiimsLogo from "../assets/aiims_logo.png";
-import icmrLogo from "../assets/icmr_logo.png";
+// import icmrLogo from "../assets/icmr_logo.png";
+// import icmrLogo from "../assets/images.png";
+// import aiimsLogo from "../assets/aiims.png";
+import icmrLogo from "../assets/icmr.png";
 import apolloLogo from "../assets/apollo_logo.png";
 import fortisLogo from "../assets/fortis_logo.png";
 

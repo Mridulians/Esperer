@@ -17,10 +17,11 @@
 }
 
 .trust-heading h2 {
-  font-size: clamp(22px, 3.5vw, 30px);
+  font-size: clamp(32px, 3.5vw, 42px);
   font-weight: 700;
-  color: #16181d;
+  color: #16232a;
   margin: 10px 0 0;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 /* VIEWPORT */
@@ -85,7 +86,7 @@
   align-items: center;
   justify-content: center;
 
-  height: 64px;
+  /* height: 64px; */
 }
 
 .trust-logo img {
@@ -131,9 +132,9 @@
     padding: 0 24px;
   }
 
-  .trust-logo {
+  /* .trust-logo {
     height: 48px;
-  }
+  } */
 
   .trust-logo img {
     max-width: 120px;
@@ -148,9 +149,9 @@
     padding: 0 20px;
   }
 
-  .trust-logo {
+  /* .trust-logo {
     height: 38px;
-  }
+  } */
 
   .trust-logo img {
     max-width: 92px;
