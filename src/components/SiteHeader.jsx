@@ -19,9 +19,9 @@ const countryWebsites = [
 
 const navLinks = [
   { label: "Home", id: "home" },
-  { label: "About Us", id: "about" },
-  { label: "Breakthroughs", id: "breakthroughs" },
   { label: "Our Businesses", id: "businesses" },
+  { label: "Breakthroughs", id: "breakthroughs" },
+  { label: "About Us", id: "about" },
   { label: "Leadership", id: "leadership" },
 ];
 
@@ -215,10 +215,10 @@ export default function SiteHeader({
                             <span className="header-business-logo">
                               <img src={business.logo} alt="" />
                             </span>
-                            <span className="header-business-name">{business.name}</span>
+                            {/* <span className="header-business-name">{business.name}</span>
                             <span className="header-business-visit">
                               Know More <IconArrowRight size={16} />
-                            </span>
+                            </span> */}
                           </a>
                         </li>
                       ))}

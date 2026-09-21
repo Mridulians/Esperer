@@ -79,7 +79,7 @@ export default function Continuum({ logos }) {
           ))}
         </div>
       </div>
-      <div className="continuum-quote">
+      {/* <div className="continuum-quote">
         <IconQuote />
         <p>
           Treating the cancer is only one part of curing the patient. The other
@@ -87,7 +87,7 @@ export default function Continuum({ logos }) {
           built to do.
         </p>
         <span>— Dr. Raktim Chattopadhyay</span>
-      </div>
+      </div> */}
     </section>
   );
 }

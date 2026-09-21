@@ -167,8 +167,8 @@ export const IconGlobe = () => (
 );
 export const IconLaurel = () => (
   <svg
-    width="26"
-    height="26"
+    width="30"
+    height="30"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"

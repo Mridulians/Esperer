@@ -24,7 +24,8 @@
 /* ---- Left copy ---- */
 .credibility-eyebrow {
   display: inline-block;
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;

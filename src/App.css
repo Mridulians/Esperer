@@ -52,7 +52,8 @@ html {
 .eyebrow {
   display: inline-block;
   font-family: var(--sans);
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -207,7 +208,8 @@ html {
   margin-top: 78px;
 }
 .hero-copy {
-  padding: 70px 48px 60px 48px;
+  /* padding: 70px 48px 60px 48px; */
+  padding: 70px 48px 5px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -287,35 +289,51 @@ html {
 
 /* ---------------- HeroSection1: editable three-column layout ---------------- */
 /* Every new style line is documented; these rules leave the other hero unchanged. */
-.hero.hero-business-layout { /* Scope the three-column grid to HeroSection1. */
+.hero.hero-business-layout {
+  /* Scope the three-column grid to HeroSection1. */
   display: grid; /* Keep this hero a grid even when shared mobile rules use flex. */
   grid-template-columns: minmax(0, 38fr) minmax(0, 37fr) minmax(0, 25fr); /* Move the molecule toward screen center and reserve the right column for businesses. */
   align-items: center; /* Vertically center the copy, molecule, and business column. */
 } /* End the desktop hero layout. */
-.hero-business-layout .hero-copy { /* Adapt the existing copy to its narrower column. */
+.hero-business-layout .hero-copy {
+  /* Adapt the existing copy to its narrower column. */
   min-width: 0; /* Allow the copy to shrink without overflowing the grid. */
   padding: 60px 16px 60px clamp(24px, 3.3vw, 48px); /* Preserve the outer gutter while freeing space beside the molecule. */
 } /* End copy spacing. */
-.hero-business-layout .hero-copy h1 { /* Scale the heading for the three-column layout. */
-  font-size: clamp(32px, 3.5vw, 56px); /* Adjust these values to change the minimum, fluid, and maximum title size. */
+.hero-business-layout .hero-copy h1 {
+  /* Scale the heading for the three-column layout. */
+  font-size: clamp(
+    32px,
+    3.5vw,
+    56px
+  ); /* Adjust these values to change the minimum, fluid, and maximum title size. */
 } /* End title sizing. */
-.hero-business-layout .hero-copy h1 span { /* Permit long title lines to fit smaller columns. */
+.hero-business-layout .hero-copy h1 span {
+  /* Permit long title lines to fit smaller columns. */
   white-space: normal; /* Wrap rather than overlap the molecule or logos. */
 } /* End title wrapping. */
-.hero-business-layout .hero-image { /* Keep the molecule inside the middle grid column. */
+.hero-business-layout .hero-image {
+  /* Keep the molecule inside the middle grid column. */
   min-width: 0; /* Prevent the canvas from widening the column. */
 } /* End molecule column sizing. */
 .hero-business-layout .hero-image, /* Apply the same dimensions to the animation wrapper. */
-.hero-business-layout .esperer-globe { /* Apply the same dimensions to the canvas host. */
+.hero-business-layout .esperer-globe {
+  /* Apply the same dimensions to the canvas host. */
   min-height: 0; /* Remove the shared hero's fixed minimum animation height. */
-  height: clamp(280px, 36vw, 540px); /* Scale the molecule area with the viewport without excessive height. */
+  height: clamp(
+    280px,
+    36vw,
+    540px
+  ); /* Scale the molecule area with the viewport without excessive height. */
 } /* End animation dimensions. */
-.hero-business-layout .hero-businesses { /* Style the new right-hand business column. */
+.hero-business-layout .hero-businesses {
+  /* Style the new right-hand business column. */
   min-width: 0; /* Allow long names to wrap within the column. */
   padding: 32px clamp(20px, 2.5vw, 40px) 32px 18px; /* Control the top, right, bottom, and left column spacing. */
   border-left: 1px solid rgba(56, 177, 179, 0.2); /* Separate the business links from the molecule with a subtle teal rule. */
 } /* End business column styling. */
-.hero-business-layout .hero-businesses-heading { /* Style the business column label. */
+.hero-business-layout .hero-businesses-heading {
+  /* Style the business column label. */
   margin: 0 0 18px; /* Add space between the heading and first business link. */
   color: var(--orange); /* Match the site's orange accent color. */
   font-family: var(--sans); /* Use the existing sans-serif font. */
@@ -324,14 +342,16 @@ html {
   letter-spacing: 0.12em; /* Space the uppercase heading letters. */
   text-transform: uppercase; /* Display the heading in uppercase. */
 } /* End business heading styling. */
-.hero-business-layout .hero-business-list { /* Arrange the four business links vertically. */
+.hero-business-layout .hero-business-list {
+  /* Arrange the four business links vertically. */
   display: grid; /* Use grid spacing between business cards. */
   gap: 12px; /* Adjust the vertical distance between businesses. */
   margin: 0; /* Remove the browser's default list margin. */
   padding: 0; /* Remove the browser's default list indentation. */
   list-style: none; /* Hide list bullets beside logos. */
 } /* End business list styling. */
-.hero-business-layout .hero-business-link { /* Make the whole logo-and-name card clickable. */
+.hero-business-layout .hero-business-link {
+  /* Make the whole logo-and-name card clickable. */
   display: grid; /* Align the logo, business name, and arrow in three tracks. */
   grid-template-columns: 76px minmax(0, 1fr) 14px; /* Set the logo width while allowing the business name to wrap. */
   align-items: center; /* Center the logo, text, and arrow vertically. */
@@ -342,67 +362,107 @@ html {
   border: 1px solid rgba(56, 177, 179, 0.18); /* Outline each card with a light teal border. */
   border-radius: 8px; /* Round the business card corners. */
   background: #ffffff; /* Keep logos on a clean white background. */
-  color: var(--text-dark); /* Keep business names readable in the site's text color. */
+  color: var(
+    --text-dark
+  ); /* Keep business names readable in the site's text color. */
   text-decoration: none; /* Remove link underlines from the cards. */
-  transition: border-color 0.2s ease, background-color 0.2s ease; /* Smooth the hover color changes without moving the cards. */
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease; /* Smooth the hover color changes without moving the cards. */
 } /* End clickable card styling. */
-.hero-business-layout .hero-business-link:hover { /* Highlight a business when pointed at. */
+.hero-business-layout .hero-business-link:hover {
+  /* Highlight a business when pointed at. */
   border-color: var(--teal); /* Strengthen the border on hover. */
-  background-color: rgba(56, 177, 179, 0.05); /* Add a subtle teal hover tint. */
+  background-color: rgba(
+    56,
+    177,
+    179,
+    0.05
+  ); /* Add a subtle teal hover tint. */
 } /* End hover styling. */
-.hero-business-layout .hero-business-link:focus-visible { /* Clearly identify the business selected by keyboard. */
+.hero-business-layout .hero-business-link:focus-visible {
+  /* Clearly identify the business selected by keyboard. */
   outline: 2px solid var(--teal); /* Add a visible keyboard focus ring. */
   outline-offset: 3px; /* Separate the focus ring from the card border. */
 } /* End keyboard focus styling. */
-.hero-business-layout .hero-business-logo { /* Display each existing logo without cropping. */
+.hero-business-layout .hero-business-logo {
+  /* Display each existing logo without cropping. */
   display: block; /* Remove inline-image baseline spacing. */
   width: 76px; /* Match the logo track width in the clickable card. */
   height: 58px; /* Give differently shaped logos a consistent display area. */
   object-fit: contain; /* Preserve each logo's original aspect ratio. */
 } /* End logo styling. */
-.hero-business-layout .hero-business-name { /* Style the visible business name beside its logo. */
+.hero-business-layout .hero-business-name {
+  /* Style the visible business name beside its logo. */
   font-family: var(--sans); /* Match the site's sans-serif typography. */
   font-size: 12px; /* Fit business names comfortably in the right-hand column. */
   font-weight: 600; /* Make each business name easy to scan. */
   line-height: 1.5; /* Keep wrapped names readable. */
   overflow-wrap: anywhere; /* Prevent unusually long words from overflowing the card. */
 } /* End business name styling. */
-.hero-business-layout .hero-business-link > svg { /* Style the clickable card's directional arrow. */
+.hero-business-layout .hero-business-link > svg {
+  /* Style the clickable card's directional arrow. */
   width: 14px; /* Match the arrow track width. */
   height: 14px; /* Keep the arrow proportions square. */
   color: var(--teal); /* Use the site's teal accent for the arrow. */
 } /* End arrow styling. */
-@media (max-width: 1100px) { /* Move business links below the hero when three columns become crowded. */
-  .hero.hero-business-layout { /* Override only HeroSection1 at tablet widths. */
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Keep copy and molecule side by side in equal columns. */
+@media (max-width: 1100px) {
+  /* Move business links below the hero when three columns become crowded. */
+  .hero.hero-business-layout {
+    /* Override only HeroSection1 at tablet widths. */
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    ); /* Keep copy and molecule side by side in equal columns. */
   } /* End tablet hero grid. */
-  .hero-business-layout .hero-businesses { /* Place the business area across the entire second row. */
+  .hero-business-layout .hero-businesses {
+    /* Place the business area across the entire second row. */
     grid-column: 1 / -1; /* Span both copy and molecule columns. */
     padding: 24px; /* Give the business area consistent tablet gutters. */
     border-left: 0; /* Remove the desktop vertical separator. */
     border-top: 1px solid rgba(56, 177, 179, 0.2); /* Separate the business row from the hero above it. */
   } /* End tablet business area. */
-  .hero-business-layout .hero-business-list { /* Arrange tablet business cards in two columns. */
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Display all four businesses in a two-by-two grid. */
+  .hero-business-layout .hero-business-list {
+    /* Arrange tablet business cards in two columns. */
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    ); /* Display all four businesses in a two-by-two grid. */
   } /* End tablet business list. */
 } /* End tablet breakpoint. */
-@media (max-width: 640px) { /* Stack the hero content on mobile screens. */
-  .hero.hero-business-layout { /* Set a single-column mobile hero. */
-    grid-template-columns: minmax(0, 1fr); /* Show copy, molecule, then businesses from top to bottom. */
+@media (max-width: 640px) {
+  /* Stack the hero content on mobile screens. */
+  .hero.hero-business-layout {
+    /* Set a single-column mobile hero. */
+    grid-template-columns: minmax(
+      0,
+      1fr
+    ); /* Show copy, molecule, then businesses from top to bottom. */
   } /* End mobile hero grid. */
-  .hero-business-layout .hero-copy { /* Tighten copy spacing on small screens. */
+  .hero-business-layout .hero-copy {
+    /* Tighten copy spacing on small screens. */
     padding: 42px 24px 20px; /* Keep readable side gutters and reduce space before the molecule. */
   } /* End mobile copy spacing. */
   .hero-business-layout .hero-image, /* Resize the animation wrapper for mobile. */
-  .hero-business-layout .esperer-globe { /* Resize the canvas host for mobile. */
-    height: min(90vw, 380px); /* Keep the molecule centered in a viewport-sized area. */
+  .hero-business-layout .esperer-globe {
+    /* Resize the canvas host for mobile. */
+    height: min(
+      90vw,
+      380px
+    ); /* Keep the molecule centered in a viewport-sized area. */
   } /* End mobile animation sizing. */
-  .hero-business-layout .hero-business-list { /* Keep business names readable on narrow phones. */
-    grid-template-columns: minmax(0, 1fr); /* Show one full-width clickable business per row. */
+  .hero-business-layout .hero-business-list {
+    /* Keep business names readable on narrow phones. */
+    grid-template-columns: minmax(
+      0,
+      1fr
+    ); /* Show one full-width clickable business per row. */
   } /* End mobile business list. */
 } /* End mobile breakpoint. */
-@media (prefers-reduced-motion: reduce) { /* Respect visitors who prefer less interface animation. */
-  .hero-business-layout .hero-business-link { /* Disable new card effects for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  /* Respect visitors who prefer less interface animation. */
+  .hero-business-layout .hero-business-link {
+    /* Disable new card effects for reduced-motion users. */
     transition: none; /* Apply hover colors instantly rather than animating them. */
   } /* End reduced-motion card styling. */
 } /* End reduced-motion preference. */
@@ -1001,6 +1061,7 @@ html {
 } */
 
 /* ===== Breakthroughs section ===== */
+/* ===== Breakthroughs section ===== */
 .breakthroughs {
   padding: 80px 24px;
   background: #ffffff;
@@ -1014,7 +1075,8 @@ html {
 
 .eyebrow {
   display: inline-block;
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.08em;
   margin-bottom: 12px;
@@ -1067,7 +1129,7 @@ html {
   flex-direction: column;
   border: 1px solid #e7e9ed;
   border-radius: 16px;
-  padding: 28px;
+  /* padding: 28px; */
   background: #ffffff;
   transition:
     box-shadow 0.2s ease,
@@ -1079,9 +1141,12 @@ html {
   transform: translateY(-2px);
 }
 
+/* Image on top, full card width, copy (icon/label/title/text) below it.
+   `order` puts the image first visually without touching the JSX markup,
+   where the image element comes after .breakthrough-copy in the DOM. */
 .breakthrough-card-main {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 20px;
   flex: 1;
 }
@@ -1091,26 +1156,19 @@ html {
 }
 
 .breakthrough-card-main img {
-  width: 120px;
-  height: 140px;
+  order: -1;
+  /* width: calc(100% + 56px); */
+  /* margin: -28px -28px 0; */
+  aspect-ratio: 3 / 2;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 16px 16px 0 0;
   flex-shrink: 0;
-}
-
-@media (max-width: 480px) {
-  .breakthrough-card-main {
-    flex-direction: column;
-  }
-  .breakthrough-card-main img {
-    width: 100%;
-    height: 160px;
-  }
 }
 
 .breakthrough-copy {
   flex: 1;
   min-width: 0;
+  padding: 28px 28px 0px 28px;
 }
 
 .breakthrough-mark {
@@ -1165,6 +1223,10 @@ html {
   overflow: hidden;
 }
 
+.breakthrough-features-button {
+  padding: 0px 28px 28px 28px;
+}
+
 .breakthrough-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1174,6 +1236,7 @@ html {
   border-radius: 8px;
   overflow: hidden;
   margin: 20px 0;
+  /* padding: 28px; */
 }
 
 .breakthrough-features span {
@@ -1194,6 +1257,10 @@ html {
   }
   .breakthrough-copy p {
     font-size: 14px;
+  }
+
+  .breakthrough-features-button {
+    padding: 0px;
   }
 }
 
@@ -1924,7 +1991,8 @@ html {
   display: block;
 }
 .card {
-  padding: 54px 48px;
+  /* padding: 54px 48px; */
+  padding: 25px 48px 54px 15px;
 }
 .foundation-card {
   background: var(--mint-light);
@@ -1954,8 +2022,10 @@ html {
   object-fit: cover; */
 
   display: block;
-  width: 500px;
-  height: 600px;
+  /* width: 500px; */
+  width: 600px;
+  /* height: 600px; */
+  height: 700px;
   object-fit: cover;
   margin: auto;
   border-radius: 10px;
@@ -1969,7 +2039,8 @@ html {
   margin-bottom: 18px;
 }
 .card > p {
-  font-size: 15px;
+  /* font-size: 15px; */
+  font-size: 18px;
   line-height: 1.65;
   color: var(--text-body);
   margin-bottom: 14px;
@@ -2103,7 +2174,8 @@ html {
   margin-bottom: 6px;
 }
 .leadership-quote p {
-  font-size: 12.5px;
+  /* font-size: 12.5px; */
+  font-size: 18px;
   line-height: 1.6;
   color: var(--text-body);
 }
@@ -2117,14 +2189,15 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 130px;
+  /* max-width: 130px; */
 }
 .award svg {
   color: var(--orange);
   margin-bottom: 8px;
 }
 .award p {
-  font-size: 10.5px;
+  /* font-size: 10.5px; */
+  font-size: 16px;
   line-height: 1.5;
   color: var(--text-body);
 }
@@ -3104,7 +3177,7 @@ html {
   .about-copy > p {
     /* font-size: 14.5px; */
     font-size: 16px;
-}
+  }
 
   .showcase-redesign {
     padding: 42px 24px 30px;
@@ -3376,15 +3449,16 @@ html {
   }
   .awards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(1, 1fr);
     gap: 14px;
   }
   .award {
     max-width: none;
   }
-  .award p {
+  /* .award p {
     font-size: 9px;
-  }
+  } */
 
   .cta {
     padding: 38px 24px;
@@ -3419,7 +3493,8 @@ html {
 @media (max-width: 500px) {
   .leadership-feature-image {
     width: 100%;
-    height: 450px;
+    /* height: 450px; */
+    height: 550px;
     min-height: 0;
     border-radius: 0;
   }

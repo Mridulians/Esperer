@@ -87,15 +87,13 @@
 //   );
 // }
 
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
-// import breakthroughPatient from "../assets/breakthrough_01_patient.png";
+import breakthroughPatient from "../assets/breakthrough_01_patient.png";
+import B1 from "../assets/b_1.png";
+import B2 from "../assets/b_2.png";
+import B3 from "../assets/b_3.png";
+import B4 from "../assets/b_4.png";
+import B5 from "../assets/b_5.png";
 // import breakthroughNutraIq from "../assets/breakthrough_02_nutra_iq.png";
 import {
   IconArrowRight,
@@ -113,8 +111,8 @@ const items = [
     label: "BREAKTHROUGH 01",
     title: "Cancer-specific nutritional therapy",
     text: "The world's first stage- and condition-specific onco-nutrition therapy — developed and validated as a clinical intervention to work alongside primary treatment and help it reach its optimal outcome.",
-    // image: breakthroughPatient,
-    image: null,
+    image: B1,
+    // image: null,
     alt: "Patient benefiting from nutritional therapy",
     mark: <IconDNA />,
     features: [
@@ -128,8 +126,8 @@ const items = [
     label: "BREAKTHROUGH 02",
     title: "AI-powered nutritional assessment protocol",
     text: "The world's first AI-powered nutritional assessment protocol — determining, with clinical precision, exactly what a patient's body requires at each stage of treatment.",
-    // image: breakthroughNutraIq,
-    image: null,
+    image: B5,
+    // image: null,
     alt: "Nutra-IQ nutritional assessment interface",
     mark: <IconChip />,
     features: [
@@ -143,7 +141,8 @@ const items = [
     label: "BREAKTHROUGH 03",
     title: "DINI Axis",
     text: "DINI Axis is Esperer's patented scientific foundation — a breakthrough framework that decodes how nutrition interacts with the body's core control systems: the brain, the immune system and the inflammatory response, all connected through the gut. Nutrients act as bioactive signals, activating protective pathways and modulating inflammation to influence the body's whole response.",
-    image: null,
+    // image: null,
+    image: B3,
     alt: "",
     mark: <IconAxis />,
     features: [
@@ -157,7 +156,8 @@ const items = [
     label: "BREAKTHROUGH 04",
     title: "Salt Lick-AI — Cancer Risk Assessment",
     text: "An AI/ML-based platform built to flag cancer risk earlier than conventional screening allows, catching patterns that are easy to miss otherwise. Part of our push into early detection — giving clinicians a head start when intervention can make the most difference.",
-    image: null,
+    // image: null,
+    image: B2,
     alt: "",
     mark: <IconRadar />,
     features: [
@@ -171,7 +171,8 @@ const items = [
     label: "BREAKTHROUGH 05",
     title: "Vital IQ — Metabolic Health Screening",
     text: "60 seconds. 20 vital signs. Zero needles. Esperer Group's Vital IQ is reinventing health screening — a clinical-grade, AI-powered scan that reads 20 vital signs in under a minute, with no wearables, no blood draw, and no clinic visit. CDSCO and USFDA licensed. Clinically validated. Built for a world that shouldn't have to choose between speed and precision.",
-    image: null,
+    // image: null,
+    image: B4,
     alt: "",
     mark: <IconPulse />,
     features: [
@@ -209,9 +210,9 @@ export default function Breakthroughs() {
         <span className="eyebrow eyebrow-orange">OUR BREAKTHROUGHS</span>
         <h2 id="breakthroughs-title">Our Breakthroughs</h2>
         <p>
-          Developed within Esperer Nutrition, these breakthroughs are
-          redefining how nutrition and technology come together to support
-          cancer care — with science, precision and purpose.
+          Developed within Esperer Nutrition, these breakthroughs are redefining
+          how nutrition and technology come together to support cancer care —
+          with science, precision and purpose.
         </p>
       </div>
 
@@ -231,18 +232,20 @@ export default function Breakthroughs() {
               </div>
               {item.image && <img src={item.image} alt={item.alt} />}
             </div>
-            <div className="breakthrough-features">
-              {item.features.map((feature) => (
-                <span key={feature}>{feature}</span>
-              ))}
+            <div className="breakthrough-features-button">
+              <div className="breakthrough-features">
+                {item.features.map((feature) => (
+                  <span key={feature}>{feature}</span>
+                ))}
+              </div>
+              <button
+                type="button"
+                className="btn btn-teal breakthrough-button"
+                onClick={() => setActiveIndex(index)}
+              >
+                {item.cta} <IconArrowRight />
+              </button>
             </div>
-            <button
-              type="button"
-              className="btn btn-teal breakthrough-button"
-              onClick={() => setActiveIndex(index)}
-            >
-              {item.cta} <IconArrowRight />
-            </button>
           </article>
         ))}
       </div>

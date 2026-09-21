@@ -8,7 +8,7 @@ import Slider from "./components/Slider.jsx";
 import About from "./components/About.jsx";
 import Breakthroughs from "./components/Breakthroughs.jsx";
 import Glance from "./components/Glance.jsx";
-import Continuum from "./components/Continuum.jsx";
+import ContinuumOfCare from "./components/ContinuumOfCare.jsx";
 import Businesses from "./components/Businesses.jsx";
 import GlobalFootprint from "./components/GlobalFootprint.jsx";
 import CredibilityFootprint from "./components/CredibilityFootprint.jsx";
@@ -16,10 +16,6 @@ import Leadership from "./components/Leadership.jsx";
 
 import BusinessDetailPage from "./pages/BusinessDetailPage.jsx";
 import { businessData, showcaseBusinesses } from "./data/pageData.js";
-import nutritionLogo from "./assets/esperer_nutrition.png";
-import bioResearchLogo from "./assets/Esperer_bioresearch.png";
-import healthVoithoLogo from "./assets/health_voitho.png";
-import saltLickLogo from "./assets/salt_lick.png";
 import "./assets/esperer-globe.js";
 import "./App.css";
 
@@ -30,10 +26,10 @@ function LandingPage() {
   useEffect(() => {
     const sectionIds = [
       "home",
-      "about",
       // "continuum",
       "businesses",
       "breakthroughs",
+      "about",
       "footprint",
       "leadership",
       "cta",
@@ -51,6 +47,7 @@ function LandingPage() {
       });
       setActiveSection(current);
     };
+    
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
@@ -69,19 +66,13 @@ function LandingPage() {
         scrollProgress={scrollProgress}
       />
       <HeroSection />
-      <HeroSection1 />
+      {/* <HeroSection1 /> */}
      
       {/* <Slider businesses={showcaseBusinesses} /> */}
-      <About />
-      <Continuum
-        logos={{
-          nutrition: nutritionLogo,
-          bioResearch: bioResearchLogo,
-          healthVoitho: healthVoithoLogo,
-          saltLick: saltLickLogo,
-        }}
-      />
+      
+      <ContinuumOfCare />
       <Breakthroughs />
+      <About />
       {/* <Glance /> */}
       {/* <Businesses businesses={businessData} /> */}
       {/* <GlobalFootprint /> */}

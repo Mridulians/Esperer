@@ -3,9 +3,9 @@ import { IconLaurel, IconQuote } from "./Icons.jsx";
 
 export default function Leadership() {
   const awards = [
-    "Task Force Member,\nNutraceutical Council,\nOffice of the Principal\nScientific Advisor,\nGovernment of India",
-    "Top 20\nHealthcare\nLeaders\nAward",
-    "Most Innovative\nHealthcare\nCompany\nAward",
+    "Task Force Member, Nutraceutical Council, Office of the Principal Scientific Advisor",
+    "Top 20 Healthcare Leaders Award by Government of India",
+    "Most Innovative Healthcare Company Award",
   ];
   return (
     <section className="leadership-section" id="leadership">
@@ -20,7 +20,7 @@ export default function Leadership() {
         <span className="eyebrow eyebrow-orange">LEADERSHIP</span>
         <h2>Dr. Raktim Chattopadhyay</h2>
         <p className="leadership-role">Founder, Esperer Group</p>
-        {/* <div className="leadership-body">
+        <div className="leadership-body">
           <div className="leadership-quote">
             <IconQuote />
             <p>
@@ -53,7 +53,7 @@ export default function Leadership() {
               </p>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </section>
   );

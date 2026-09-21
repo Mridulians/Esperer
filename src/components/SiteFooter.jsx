@@ -71,9 +71,9 @@ export default function SiteFooter({ businesses = [] }) {
           <div className="footer-col">
             <h5>COMPANY</h5>
             <a href="#">Home</a>
-            <a href="#about">About Us</a>
             <a href="#breakthroughs">Breakthroughs</a>
             <a href="#businesses">Our Businesses</a>
+            <a href="#about">About Us</a>
             <a href="#leadership">Leadership</a>
             {/* <a href="#contact">Contact</a> */}
           </div>

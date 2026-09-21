@@ -1,0 +1,587 @@
+/* ---------------- The Continuum of Care ---------------- */
+.coc {
+  --coc-teal: #38b1b3;
+  --coc-teal-deep: #159a96;
+  --coc-teal-ink: #0d8b8e;
+  --coc-orange: #e8792a;
+  --coc-ink: #16232a;
+  --coc-serif: "Montserrat", Arial, sans-serif;
+  --coc-sans: "Poppins", Arial, sans-serif;
+
+  /* Row geometry lives here so the flowing line stays locked to the markers. */
+  --coc-node-size: 96px;
+  --coc-row-gap-top: 46px;
+  --coc-wave-height: 200px;
+  --coc-wave-top: calc(var(--coc-row-gap-top) + (var(--coc-node-size) / 2) - 80px);
+  --coc-wave-trough: calc(var(--coc-wave-top) + 126.66px);
+  --coc-side: clamp(20px, 4.6vw, 88px);
+  /* The logo band is allowed to bleed into the left/right gutters so the
+     partner marks can be large without crowding the columns. */
+  --coc-track-bleed: calc(var(--coc-side) * -0.4);
+  /* One multiplier resizes every partner mark across the breakpoints. */
+  --coc-logo-scale: 1;
+
+  position: relative;
+  overflow: hidden;
+  padding: 78px 0 96px;
+  background:
+    radial-gradient(
+      58% 52% at 100% 0%,
+      rgba(56, 177, 179, 0.18) 0%,
+      rgba(56, 177, 179, 0.05) 44%,
+      rgba(255, 255, 255, 0) 74%
+    ),
+    radial-gradient(
+      42% 38% at 3% 78%,
+      rgba(56, 177, 179, 0.1) 0%,
+      rgba(255, 255, 255, 0) 70%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #fbfefe 58%, #f5fbfb 100%);
+  color: var(--coc-ink);
+  font-family: var(--coc-sans);
+}
+
+/* ---- Decorative background: out-of-focus cell cluster + blooms ---- */
+.coc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.coc-bg-art {
+  position: absolute;
+  inset: 0;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+}
+
+.coc-bg-cell {
+  position: absolute;
+  top: clamp(-96px, -5vw, -44px);
+  right: clamp(-130px, -7vw, -54px);
+  width: clamp(240px, 32vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(9px);
+  opacity: 0.85;
+  background: radial-gradient(
+    circle at 46% 44%,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(226, 243, 245, 0.92) 30%,
+    rgba(178, 219, 223, 0.7) 55%,
+    rgba(140, 199, 205, 0.45) 74%,
+    rgba(140, 199, 205, 0) 100%
+  );
+  box-shadow: inset 0 0 60px rgba(120, 190, 196, 0.35);
+}
+
+.coc-bg-cell::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.5) 0 6px,
+      rgba(180, 220, 224, 0.42) 6px 12px,
+      rgba(255, 255, 255, 0.18) 12px 18px
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(178, 219, 223, 0.5) 60%,
+      rgba(150, 203, 208, 0.2) 100%
+    );
+  filter: blur(3px);
+  opacity: 0.75;
+}
+
+.coc-bg-cell::after {
+  content: "";
+  position: absolute;
+  inset: -7%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.72) 74%,
+    rgba(255, 255, 255, 0) 90%
+  );
+  filter: blur(4px);
+}
+
+.coc-bg-bubble {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(6px);
+  opacity: 0.72;
+  background: radial-gradient(
+    circle at 44% 42%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(206, 235, 238, 0.85) 34%,
+    rgba(160, 210, 215, 0.55) 66%,
+    rgba(160, 210, 215, 0) 100%
+  );
+}
+
+.coc-bg-bubble-1 {
+  top: 34px;
+  right: clamp(120px, 15vw, 250px);
+  width: clamp(56px, 6vw, 104px);
+}
+
+.coc-bg-bubble-2 {
+  top: clamp(180px, 19vw, 280px);
+  right: clamp(-34px, -1vw, 0px);
+  width: clamp(88px, 9vw, 150px);
+}
+
+.coc-bg-bubble-3 {
+  bottom: clamp(-46px, -3vw, -14px);
+  left: clamp(6px, 3vw, 60px);
+  width: clamp(70px, 8vw, 130px);
+  opacity: 0.5;
+}
+
+.coc-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--coc-side);
+}
+
+/* ---- Heading ---- */
+.coc-head {
+  max-width: 900px;
+}
+
+.coc-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--coc-orange);
+  font-family: var(--coc-sans);
+  /* font-size: 12px; */
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.coc-heading {
+  margin: 0;
+  /* Em based so the three-line break of the design is preserved at any size. */
+  max-width: 19em;
+  color: var(--coc-ink);
+  font-family: var(--coc-serif);
+  font-size: clamp(27px, 3.1vw, 46px);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Marker row + flowing line ---- */
+.coc-track-wrap {
+  position: relative;
+  margin: 64px var(--coc-track-bleed) 0;
+  color: var(--coc-teal);
+}
+
+.coc-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: var(--coc-row-gap-top) 0 0;
+  list-style: none;
+}
+
+.coc-wave {
+  position: absolute;
+  top: var(--coc-wave-top);
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: var(--coc-wave-height);
+  color: var(--coc-teal);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Flat tails continue the line past the first and last marker to the edges. */
+.coc-track-wrap::before,
+.coc-track-wrap::after {
+  content: "";
+  position: absolute;
+  top: var(--coc-wave-trough);
+  z-index: 0;
+  width: 50vw;
+  height: 1.4px;
+  background: currentColor;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.coc-track-wrap::before {
+  right: 100%;
+}
+
+.coc-track-wrap::after {
+  left: 100%;
+}
+
+/* ---- Step ---- */
+.coc-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.coc-node-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coc-step-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* Card treatment: same subtle border + shadow on every breakpoint. */
+  border: 1px solid rgba(56, 177, 179, 0.16);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 22px 44px -22px rgba(21, 154, 150, 0.32),
+    0 3px 12px rgba(15, 35, 40, 0.06);
+  padding: 26px 22px;
+}
+
+.coc-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--coc-node-size);
+  height: var(--coc-node-size);
+  border: 1px solid rgba(56, 177, 179, 0.42);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 42%,
+    #ffffff 0%,
+    #ffffff 46%,
+    rgba(224, 243, 244, 0.92) 74%,
+    rgba(196, 231, 233, 0.8) 100%
+  );
+  box-shadow:
+    0 12px 26px rgba(56, 177, 179, 0.16),
+    inset 0 0 20px rgba(56, 177, 179, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.coc-step:hover .coc-node {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 32px rgba(56, 177, 179, 0.24),
+    inset 0 0 22px rgba(56, 177, 179, 0.12);
+}
+
+.coc-node-number {
+  position: absolute;
+  top: -54px;
+  left: -14px;
+  color: var(--coc-orange);
+  font-family: var(--coc-serif);
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.coc-node-arc {
+  position: absolute;
+  top: calc(var(--coc-node-size) / -2 - 28px);
+  left: calc(var(--coc-node-size) / -2 - 28px);
+  width: calc(var(--coc-node-size) + 56px);
+  height: calc(var(--coc-node-size) + 56px);
+  color: var(--coc-orange);
+  pointer-events: none;
+}
+
+.coc-node-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--coc-teal-ink);
+}
+
+.coc-node-icon::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+.coc-node-glyph {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+.coc-stem {
+  width: 1.5px;
+  height: 44px;
+  background: linear-gradient(
+    180deg,
+    var(--coc-teal-deep) 0%,
+    rgba(56, 177, 179, 0.3) 100%
+  );
+}
+
+/* ---- Step copy + partner ---- */
+.coc-step-title {
+  margin: 0;
+  color: var(--coc-ink);
+  font-family: var(--coc-serif);
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.32;
+}
+
+/* Fixed-height logo band: every mark is centred on one baseline so the row reads
+   as a single strip, and object-fit keeps each mark in proportion. */
+.coc-partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(156px * var(--coc-logo-scale));
+  margin-top: 52px;
+  opacity: 0.98;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.coc-partner:hover,
+.coc-partner:focus-visible {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.coc-partner img {
+  display: block;
+  /* Explicit width + height make the box definite, so object-fit can letterbox
+     any asset aspect ratio at full size without ever squashing it. */
+  width: 100%;
+  height: calc(var(--coc-logo-height, 60px) * var(--coc-logo-scale));
+  object-fit: contain;
+}
+
+.coc-partner-name {
+  margin: 26px 0 0;
+  color: var(--coc-ink);
+  font-family: var(--coc-sans);
+  /* font-size: 16px; */
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1200px) {
+  .coc {
+    --coc-node-size: 84px;
+    --coc-row-gap-top: 42px;
+    --coc-logo-scale: 0.9;
+    padding: 64px 0 80px;
+  }
+
+  .coc-heading {
+    font-size: clamp(26px, 3.6vw, 40px);
+  }
+
+  .coc-node-number {
+    top: -48px;
+    left: -10px;
+    font-size: 19px;
+  }
+
+  .coc-node-glyph {
+    width: 38px;
+    height: 38px;
+  }
+
+  .coc-stem {
+    height: 38px;
+  }
+
+  .coc-step-title {
+    font-size: 16.5px;
+  }
+
+  .coc-partner-name {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .coc {
+    --coc-node-size: 78px;
+    --coc-row-gap-top: 40px;
+    --coc-logo-scale: 0.85;
+  }
+
+  .coc-node-glyph {
+    width: 34px;
+    height: 34px;
+  }
+
+  .coc-step-title {
+    font-size: 15.5px;
+  }
+
+  .coc-partner-name {
+    font-size: 14.5px;
+  }
+}
+
+/* Two per row */
+@media (max-width: 767px) {
+  .coc {
+    --coc-row-gap-top: 44px;
+    --coc-logo-scale: 0.82;
+    padding: 56px 0 64px;
+  }
+
+  .coc-heading {
+    font-size: clamp(24px, 5.8vw, 34px);
+  }
+
+  .coc-track-wrap {
+    margin-top: 46px;
+  }
+
+  .coc-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 76px;
+  }
+
+  .coc-wave,
+  .coc-track-wrap::before,
+  .coc-track-wrap::after {
+    display: none;
+  }
+
+  .coc-node-number {
+    top: -46px;
+  }
+
+  .coc-stem {
+    height: 32px;
+  }
+}
+
+/* Single column: no timeline/connector — just an icon circle beside a
+   content card, sized up for legibility on small screens. */
+@media (max-width: 560px) {
+  .coc {
+    --coc-node-size: 88px;
+    --coc-row-gap-top: 0px;
+    --coc-logo-scale: 1;
+    padding: 48px 0 56px;
+  }
+
+  .coc-track-wrap {
+    margin-top: 40px;
+  }
+
+  .coc-track {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    padding-top: 34px;
+  }
+
+  .coc-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0;
+    text-align: left;
+  }
+
+  .coc-node-wrap {
+    flex: 0 0 auto;
+    margin-left: 6px;
+    margin-top: 4px;
+  }
+
+  .coc-stem {
+    display: none;
+  }
+
+  .coc-step-body {
+    align-items: flex-start;
+    width: auto;
+    flex: 1 1 auto;
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+
+  .coc-node-number {
+    top: -36px;
+    left: -2px;
+    font-size: 20px;
+  }
+
+  .coc-node-glyph {
+    width: 38px;
+    height: 38px;
+  }
+
+  .coc-step-title {
+    font-size: 20px;
+  }
+
+  .coc-partner {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 0;
+    margin-top: 20px;
+  }
+
+  .coc-partner-name {
+    margin-top: 14px;
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coc-node,
+  .coc-partner {
+    transition: none;
+  }
+
+  .coc-step:hover .coc-node,
+  .coc-partner:hover,
+  .coc-partner:focus-visible {
+    transform: none;
+  }
+}
