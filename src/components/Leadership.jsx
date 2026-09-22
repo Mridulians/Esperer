@@ -3,7 +3,7 @@ import { IconLaurel, IconQuote } from "./Icons.jsx";
 
 export default function Leadership() {
   const awards = [
-    "Task Force Member, Nutraceutical Council, Office of the Principal Scientific Advisor",
+    "Ex-Task Force Member, Nutraceutical Council, Office of the Principal Scientific Advisor",
     "Top 20 Healthcare Leaders Award by Government of India",
     "Most Innovative Healthcare Company Award",
   ];

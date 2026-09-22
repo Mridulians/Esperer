@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import logo from "../assets/logo_with_white_text.png";
 
 const Icon = ({ children }) => (
@@ -28,12 +29,6 @@ const IconArrowRight = ({ size = 13 }) => (
   </svg>
 );
 
-const IconMapPin = () => (
-  <Icon>
-    <path d="M12 21s7-6.6 7-11.5a7 7 0 1 0-14 0C5 14.4 12 21 12 21Z" />
-    <circle cx="12" cy="9.5" r="2.3" />
-  </Icon>
-);
 const IconMail = () => (
   <Icon>
     <rect x="3" y="5" width="18" height="14" rx="1.5" />
@@ -45,6 +40,43 @@ const IconPhone = () => (
     <path d="M5 4h3l2 5-2.2 1.6a11 11 0 0 0 5.6 5.6L15 14l5 2v3a2 2 0 0 1-2.2 2C10.6 20.6 3.4 13.4 3 6.2 3 5 4 4 5 4Z" />
   </Icon>
 );
+
+const locations = [
+  {
+    flag: "🇮🇳",
+    title: "Corporate Office",
+    lines: [
+      "4BA, 4th Floor, B Wing, Gundecha Onclave, Sakinaka, Andheri East,",
+      "Mumbai - 400072, Maharashtra, India",
+    ],
+  },
+  {
+    flag: "🇮🇳",
+    title: "Distribution Office",
+    lines: [
+      "170, First Floor, Satra Plaza Premises Co-Op. Soc Ltd, Plot No. 19 & 20, Sec-19D, Vashi,",
+      "Navi Mumbai, Maharashtra, India - 400703",
+    ],
+  },
+  {
+    flag: "🇦🇪",
+    title: "Esperer Global LLC",
+    lines: ["Office No. 20B, 18th Floor, The Regal Tower, Business Bay, Dubai, UAE"],
+  },
+  {
+    flag: "🇦🇺",
+    title: "Esperer Nutrition Australia",
+    lines: [
+      "Unit 7-12, 16 Rob Place, Vineyard NSW 2765, Australia",
+      "ACN - 697 415 311",
+    ],
+  },
+   {
+    flag: "🇺🇸",
+    title: "North America Office",
+    lines: ["Unit #11, 142 Belmont Drive, Somerset, New Jersey 08873, USA"],
+  },
+];
 
 export default function SiteFooter({ businesses = [] }) {
   return (
@@ -98,18 +130,36 @@ export default function SiteFooter({ businesses = [] }) {
           <div className="footer-col footer-contact">
             <h5>CONTACT</h5>
             <p>
-              <IconMapPin /> Mumbai (HQ):
-              <br />
-              Gundecha Onclave, Sakinaka, Andheri East
-            </p>
-            <p>
-              <IconMail /> info@esperernutrition.com
+              <IconMail /> businessinquiries@esperernutrition.com
             </p>
             <p>
               <IconPhone /> Toll Free: 1800 890 2671
             </p>
           </div>
         </div>
+
+        <div className="footer-locations">
+          <h5>OUR LOCATIONS</h5>
+          <div className="footer-locations-grid">
+            {locations.map((location) => (
+              <div className="footer-location" key={location.title}>
+                <h6>
+                  <span className="footer-location-flag">{location.flag}</span>
+                  {location.title}
+                </h6>
+                <p>
+                  {location.lines.map((line, index) => (
+                    <Fragment key={index}>
+                      {line}
+                      {index < location.lines.length - 1 ? <br /> : null}
+                    </Fragment>
+                  ))}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="footer-bottom">
           <div className="socials">
             <a href="#" aria-label="LinkedIn">

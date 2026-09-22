@@ -105,7 +105,7 @@ const CONTINUUM_HEADING =
 const continuumBusinesses = [
   {
     number: "01",
-    title: ["Prevention &", "Early Detection"],
+    title: ["Cancer Risk Assesment "],
     name: ["Salt Lick"],
     icon: <IconShieldHeart />,
     logo: saltLickLogo,
@@ -114,7 +114,7 @@ const continuumBusinesses = [
   },
   {
     number: "02",
-    title: ["Treatment"],
+    title: ["Cancer Treatment with Pharmaceutical Interventions "],
     name: ["Esperer BioResearch"],
     icon: <IconHelix />,
     logo: bioResearchLogo,
@@ -124,7 +124,7 @@ const continuumBusinesses = [
   },
   {
     number: "03",
-    title: ["Molecular", "Nutrition"],
+    title: ["Cancer Nutrition as Complementary Care "],
     name: ["Esperer Nutrition"],
     icon: <IconMint />,
     logo: nutritionLogo,
@@ -133,7 +133,7 @@ const continuumBusinesses = [
   },
   {
     number: "04",
-    title: ["Technology"],
+    title: ["Healthtech in Cancer "],
     name: ["Health Voitho", "Technologies"],
     icon: <IconCircuit />,
     logo: healthVoithoLogo,

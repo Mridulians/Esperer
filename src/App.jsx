@@ -76,8 +76,8 @@ function LandingPage() {
       {/* <Glance /> */}
       {/* <Businesses businesses={businessData} /> */}
       {/* <GlobalFootprint /> */}
-       <BusinessLogoStrip />
       <CredibilityFootprint />
+       <BusinessLogoStrip />
       <Leadership />
       <SiteFooter businesses={businessData} />
     </div>

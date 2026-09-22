@@ -2314,6 +2314,7 @@ html {
 }
 
 /* ---------------- Footer ---------------- */
+/* ---------------- Footer ---------------- */
 .footer {
   background: #38b1b3;
   color: #fff;
@@ -2325,7 +2326,6 @@ html {
   /* gap: 28px; */
   gap: 45px;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footer-brand .brand-logo {
   /* filter: brightness(0) invert(1); */
@@ -2376,6 +2376,51 @@ html {
   flex-shrink: 0;
   margin-top: 3px;
 }
+
+/* ---- Our Locations row ---- */
+.footer-locations {
+  padding: 36px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-locations h5 {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  margin: 0 0 22px;
+}
+.footer-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* gap: 28px 32px; */
+  gap: 45px 32px;
+}
+.footer-location h6 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.footer-location-flag {
+  font-size: 16px;
+  line-height: 1;
+}
+.footer-location p {
+  /* font-size: 15px; */
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+  margin: 0;
+}
+
 .footer,
 .footer-col h5,
 .footer-col a,
@@ -3551,6 +3596,11 @@ html {
 
   .business-detail-eyebrow {
     font-size: 12px !important;
+  }
+
+  .footer-location p {
+    /* font-size: 15px; */
+    font-size: 16px;
   }
 }
 
