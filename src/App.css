@@ -3604,6 +3604,12 @@ html {
   }
 }
 
+@media (max-width: 370px) {
+  .footer-contact-email {
+    word-break: break-word;
+  }
+}
+
 /* Final section-specific overrides keep the two business layouts independent. */
 .businesses.businesses-cards-section {
   display: block;

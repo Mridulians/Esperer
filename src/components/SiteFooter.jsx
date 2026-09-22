@@ -129,7 +129,7 @@ export default function SiteFooter({ businesses = [] }) {
           </div> */}
           <div className="footer-col footer-contact">
             <h5>CONTACT</h5>
-            <p>
+            <p className="footer-contact-email">
               <IconMail /> businessinquiries@esperernutrition.com
             </p>
             <p>
