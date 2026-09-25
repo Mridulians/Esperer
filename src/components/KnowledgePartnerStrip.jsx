@@ -1,5 +1,7 @@
 import { IconArrowRight } from "./Icons.jsx";
-import EiomLogo from "../assets/EiomLogo2.png";
+// import EiomLogo from "../assets/EiomLogo2.png";
+// import EiomLogo from "../assets/Eioms_new_logo.png";
+import EiomLogo from "../assets/eioms.png";
 import "./KnowledgePartnerStrip.css";
 
 export default function KnowledgePartnerStrip() {
@@ -8,7 +10,7 @@ export default function KnowledgePartnerStrip() {
       <div className="knowledge-partner-identity">
         <div className="knowledge-partner-brand">
           {/* Temporary logo until the original EIOMS asset is supplied. */}
-          <img src={EiomLogo} alt="Salt Lick" width="40" height="40" />
+          <img src={EiomLogo} alt="Eioms" width="40" height="40" />
           {/* <span>EIOMS</span> */}
         </div>
         <span className="knowledge-partner-divider" aria-hidden="true" />

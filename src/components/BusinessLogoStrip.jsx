@@ -6,6 +6,11 @@ import icmrLogo from "../assets/icmr.png";
 import apolloLogo from "../assets/apollo_logo.png";
 import fortisLogo from "../assets/fortis_logo.png";
 
+import AOI from "../assets/AOI_logo.png"
+import MAX from "../assets/Max_logo.png"
+import Narayan from "../assets/narayan_logo.png"
+import HCG from "../assets/HCG_logo.png"
+
 import "./BusinessLogoStrip.css";
 
 const logos = [
@@ -13,6 +18,10 @@ const logos = [
   { name: "ICMR", src: icmrLogo },
   { name: "Apollo Hospitals", src: apolloLogo },
   { name: "Fortis Healthcare", src: fortisLogo },
+  { name: "American Oncology Institute", src: AOI },
+  { name: "Max Hospital", src: MAX },
+  { name: "Narayan Institute", src: Narayan },
+  { name: "HCG", src: HCG },
 ];
 
 const LogoGroup = ({ duplicate = false }) => (

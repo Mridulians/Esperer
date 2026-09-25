@@ -110,7 +110,7 @@ const continuumBusinesses = [
     icon: <IconShieldHeart />,
     logo: saltLickLogo,
     logoHeight: 140,
-    website: "https://www.saltlick.com",
+    website: "www.saltlickhealthcare.com",
   },
   {
     number: "02",

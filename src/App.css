@@ -2315,111 +2315,459 @@ html {
 
 /* ---------------- Footer ---------------- */
 /* ---------------- Footer ---------------- */
+
 .footer {
   background: #38b1b3;
   color: #fff;
-  padding: 60px 48px 24px;
+  padding: 60px 0px 24px;
 }
+
 .footer-top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.15fr 1.25fr;
-  /* gap: 28px; */
   gap: 45px;
   padding-bottom: 40px;
+  padding-left: 48px;
+  padding-right: 48px;
 }
+
 .footer-brand .brand-logo {
-  /* filter: brightness(0) invert(1); */
   margin-bottom: 16px;
-  /* height: 32px; */
   height: 50px;
   width: auto;
 }
+
 .footer-brand p {
-  /* font-size: 12.5px; */
   font-size: 18px;
   line-height: 1.7;
-  /* max-width: 260px; */
   color: #fff;
 }
+
 .footer-col {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .footer-col h5 {
   font-family: var(--sans);
-  /* font-size: 12px; */
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #fff;
   margin-bottom: 6px;
 }
+
 .footer-col a {
-  /* font-size: 13px; */
   font-size: 16px;
   color: #fff;
 }
+
 /* .footer-col a:hover {
   color: #fff;
 } */
+
 .footer-contact p {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  /* font-size: 13px; */
   font-size: 16px;
   color: rgba(0, 0, 0, 0.6);
   line-height: 1.5;
 }
+
 .footer-contact svg {
   flex-shrink: 0;
   margin-top: 3px;
 }
 
-/* ---- Our Locations row ---- */
+
+/* =========================================================
+   OUR LOCATIONS
+   ========================================================= */
+
 .footer-locations {
-  padding: 36px 0 40px;
+  position: relative;
+  overflow: hidden;
+  padding: 56px 48px 44px;
+
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  isolation: isolate;
 }
-.footer-locations h5 {
+
+
+/* ---------------------------------------------------------
+   Full-section world map background
+   --------------------------------------------------------- */
+
+.footer-locations-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: var(--locations-map);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /*
+    Keep the map visible but subtle.
+    Increase to 0.30 if you want the map stronger.
+  */
+  /* opacity: 0.28; */
+
+  z-index: -2;
+  pointer-events: none;
+
+  transform: scale(1.02);
+}
+
+
+/* ---------------------------------------------------------
+   Teal overlay
+   --------------------------------------------------------- */
+
+.footer-locations-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(56, 177, 179, 0.82) 0%,
+      rgba(56, 177, 179, 0.66) 45%,
+      rgba(56, 177, 179, 0.78) 100%
+    );
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   Content layer
+   --------------------------------------------------------- */
+
+.footer-locations-inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Intro
+   --------------------------------------------------------- */
+
+.footer-locations-intro {
+  margin-bottom: 48px;
+}
+
+.footer-locations-copy {
+  max-width: 480px;
+}
+
+.footer-locations-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #f2792a;
+
   font-family: var(--sans);
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+
+  letter-spacing: 0.14em;
+
+  margin-bottom: 20px;
+}
+
+.footer-locations-eyebrow-line {
+  display: inline-block;
+
+  width: 26px;
+  height: 2px;
+
+  background: #f2792a;
+}
+
+.footer-locations-heading {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(38px, 4.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.04;
+
   color: #fff;
+
   margin: 0 0 22px;
 }
+
+.footer-locations-sub {
+  font-size: 16px;
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  margin: 0 0 26px;
+}
+
+
+/* ---------------------------------------------------------
+   Explore locations
+   --------------------------------------------------------- */
+
+.footer-locations-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  color: #fff;
+
+  font-weight: 600;
+  font-size: 15px;
+
+  text-decoration: none;
+}
+
+.footer-locations-link-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-locations-link:hover .footer-locations-link-icon {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(3px);
+}
+
+
+/* ---------------------------------------------------------
+   Location cards
+   --------------------------------------------------------- */
+
 .footer-locations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  /* gap: 28px 32px; */
-  gap: 45px 32px;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 32px;
 }
-.footer-location h6 {
+
+
+/* ---------------------------------------------------------
+   Flag
+   --------------------------------------------------------- */
+
+.footer-location-flagrow {
   display: flex;
   align-items: center;
   gap: 8px;
+
+  margin-bottom: 14px;
+}
+
+.footer-location-flag {
+  display: block;
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+
+  flex-shrink: 0;
+}
+
+.footer-location-code {
   font-family: var(--sans);
-  font-size: 14px;
+
+  font-size: 13px;
   font-weight: 700;
+
   letter-spacing: 0.06em;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ---------------------------------------------------------
+   Location title
+   --------------------------------------------------------- */
+
+.footer-location h6 {
+  font-family: var(--sans);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
   text-transform: uppercase;
+
   color: #fff;
+
   margin: 0 0 10px;
 }
-.footer-location-flag {
-  font-size: 16px;
-  line-height: 1;
+
+
+/* ---------------------------------------------------------
+   City
+   --------------------------------------------------------- */
+
+.footer-location-city {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  margin: 0 0 12px;
 }
-.footer-location p {
-  /* font-size: 15px; */
-  font-size: 18px;
+
+.footer-location-city svg {
+  flex-shrink: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Address
+   --------------------------------------------------------- */
+
+.footer-location-address {
+  font-size: 14px;
   line-height: 1.6;
-  color: #fff;
+
+  color: rgba(255, 255, 255, 0.88);
+
   margin: 0;
 }
+
+
+/* ---------------------------------------------------------
+   Additional note
+   --------------------------------------------------------- */
+
+.footer-location-note {
+  font-size: 13px;
+  font-style: italic;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  margin: 8px 0 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .footer-locations-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 40px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Tablet
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .footer-locations-copy {
+    max-width: none;
+  }
+
+  .footer-locations-bg {
+    background-position: center;
+  }
+
+  .footer-locations-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(56, 177, 179, 0.82) 0%,
+        rgba(56, 177, 179, 0.72) 100%
+      );
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Small tablet / large mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .footer-locations-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-locations {
+    padding: 48px 24px 38px;
+  }
+
+  .footer-top {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .footer-locations-bg {
+    background-size: auto 100%;
+    background-position: center top;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 420px) {
+  .footer-locations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-locations-heading {
+    font-size: 32px;
+  }
+
+  .footer-locations-bg {
+    background-size: auto 100%;
+    background-position: center top;
+  }
+
+  .footer-locations-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(56, 177, 179, 0.88) 0%,
+        rgba(56, 177, 179, 0.78) 100%
+      );
+  }
+}
+
+
+/* =========================================================
+   FOOTER GLOBAL
+   ========================================================= */
 
 .footer,
 .footer-col h5,
@@ -2428,28 +2776,43 @@ html {
 .footer-brand p {
   color: #fff;
 }
+
+
+/* ---------------------------------------------------------
+   Footer bottom
+   --------------------------------------------------------- */
+
 .footer-bottom {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
+
   padding-top: 24px;
-  /* font-size: 12px; */
+  padding-bottom: 24px;
+  padding-right: 48px;
+  padding-left: 48px;
+
   font-size: 16px;
 }
+
 .socials {
   display: flex;
   gap: 14px;
 }
+
 .socials a {
-  /* width: 30px; */
-  /* height: 30px; */
   width: 50px;
   height: 50px;
+
   border: 1px solid rgba(0, 0, 0, 0.2);
+
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #fff;
 }
 
@@ -3517,7 +3880,7 @@ html {
     width: 100%;
   }
   .footer {
-    padding: 48px 24px 24px;
+    padding: 48px 0px 0px;
   }
   .footer-top {
     grid-template-columns: 1fr 1fr;

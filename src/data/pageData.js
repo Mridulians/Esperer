@@ -25,7 +25,7 @@ export const businessData = [
     country: "India",
     description:
       "Risk assessment and early detection. A patented system that performs cancer risk assessment well in advance through simple screening.",
-       website: "https://www.saltlick.com",
+       website: "www.saltlickhealthcare.com",
   },
   {
     id: "bioresearch",

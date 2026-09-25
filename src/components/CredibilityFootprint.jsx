@@ -1,4 +1,5 @@
-import MapImg from "../assets/map_img.png";
+// import MapImg from "../assets/map_img.png";
+import MapImg from "../assets/map_img_new.png";
 import "./CredibilityFootprint.css";
 
 /* ---------------- Local icons (self-contained for this component) ---------------- */
