@@ -7,7 +7,7 @@ const businessWebsites = {
   "esperer-nutrition": "https://www.esperernutrition.com",
   "esperer-bioresearch": "https://www.espererbioresearch.com",
   "health-voitho-technologies": "https://www.healthvoitho.com",
-  "salt-lick-healthcare": "www.saltlickhealthcare.com",
+  "salt-lick-healthcare": "https://www.saltlickhealthcare.com",
 };
 
 const countryWebsites = [
