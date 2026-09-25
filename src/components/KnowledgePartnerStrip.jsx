@@ -1,7 +1,8 @@
 import { IconArrowRight } from "./Icons.jsx";
 // import EiomLogo from "../assets/EiomLogo2.png";
 // import EiomLogo from "../assets/Eioms_new_logo.png";
-import EiomLogo from "../assets/eioms.png";
+// import EiomLogo from "../assets/eioms.png";
+import EiomLogo from "../assets/EIOMS_logo_transparent.png";
 import "./KnowledgePartnerStrip.css";
 
 export default function KnowledgePartnerStrip() {

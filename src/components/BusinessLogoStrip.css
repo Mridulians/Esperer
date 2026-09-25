@@ -154,7 +154,8 @@
   } */
 
   .trust-logo img {
-    max-width: 92px;
+    /* max-width: 92px; */
+    max-width: 120px;
   }
 }
 
