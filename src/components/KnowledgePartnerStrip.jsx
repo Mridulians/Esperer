@@ -22,7 +22,7 @@ export default function KnowledgePartnerStrip() {
         href="/eioms"
         aria-label="Visit the EIOMS information page"
       >
-        Visit EIOMS
+        Know More
         <span className="knowledge-partner-icons" aria-hidden="true">
           <IconArrowRight size={16} />
           {/* <svg
