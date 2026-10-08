@@ -15,6 +15,7 @@ import CredibilityFootprint from "./components/CredibilityFootprint.jsx";
 import Leadership from "./components/Leadership.jsx";
 
 import BusinessDetailPage from "./pages/BusinessDetailPage.jsx";
+import EiomsPage from "./pages/EiomsPage.jsx";
 import { businessData, showcaseBusinesses } from "./data/pageData.js";
 import "./assets/esperer-globe.js";
 import "./App.css";
@@ -85,11 +86,14 @@ function LandingPage() {
 }
 
 export default function App() {
+  const isEiomsPage = window.location.pathname.replace(/\/+$/, "") === "/eioms";
   const route = window.location.pathname.match(/^\/business\/([^/]+)/);
   const detailBusiness = showcaseBusinesses.find(
     ({ slug }) => slug === route?.[1],
   );
-  return detailBusiness ? (
+  return isEiomsPage ? (
+    <EiomsPage businesses={businessData} />
+  ) : detailBusiness ? (
     <BusinessDetailPage business={detailBusiness} businesses={businessData} />
   ) : (
     <LandingPage />

@@ -298,7 +298,9 @@ const locations = [
   },
 ];
 
-export default function SiteFooter({ businesses = [] }) {
+export default function SiteFooter({ businesses = [], standalone = false }) {
+  const sectionHref = (section) => `${standalone ? "/" : ""}#${section}`;
+
   return (
     <>
       <section className="cta" id="cta">
@@ -307,7 +309,7 @@ export default function SiteFooter({ businesses = [] }) {
           advancing cancer care from prevention to post-care.
         </h2>
 
-        <a href="#businesses" className="btn btn-white">
+        <a href={sectionHref("businesses")} className="btn btn-white">
           Partner With Us <IconArrowRight />
         </a>
       </section>
@@ -332,11 +334,11 @@ export default function SiteFooter({ businesses = [] }) {
           <div className="footer-col">
             <h5>COMPANY</h5>
 
-            <a href="#">Home</a>
-            <a href="#breakthroughs">Breakthroughs</a>
-            <a href="#businesses">Our Businesses</a>
-            <a href="#about">About Us</a>
-            <a href="#leadership">Leadership</a>
+            <a href={sectionHref("home")}>Home</a>
+            <a href={sectionHref("breakthroughs")}>Breakthroughs</a>
+            <a href={sectionHref("businesses")}>Our Businesses</a>
+            <a href={sectionHref("about")}>About Us</a>
+            <a href={sectionHref("leadership")}>Leadership</a>
           </div>
 
           <div className="footer-col">

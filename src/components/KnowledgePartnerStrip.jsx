@@ -19,10 +19,8 @@ export default function KnowledgePartnerStrip() {
       </div>
       <a
         className="knowledge-partner-link"
-        href="https://mridul.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Visit EIOMS (opens in a new tab)"
+        href="/eioms"
+        aria-label="Visit the EIOMS information page"
       >
         Visit EIOMS
         <span className="knowledge-partner-icons" aria-hidden="true">

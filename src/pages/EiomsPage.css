@@ -1,0 +1,1618 @@
+.eioms-page {
+  --eioms-ink: #16232a;
+  --eioms-teal: #38b1b3;
+  --eioms-orange: #e8792a;
+  --eioms-gold: #e8792a;
+  /* --eioms-paper: #faf9f5; */
+  --eioms-paper: #fff;
+  /* --eioms-sand: #f0eee5; */
+  --eioms-sand: #fff;
+  --eioms-muted: #64727a;
+  color: var(--eioms-ink);
+  background: var(--eioms-paper);
+  font-family: var(--sans);
+}
+
+.eioms-page main {
+  padding-top: 132px;
+}
+
+.eioms-section {
+  /* padding: 100px 0; */
+  padding: 70px 0;
+}
+
+.eioms-section-inner {
+  width: min(100% - 80px, 1180px);
+  margin: 0 auto;
+}
+
+.eioms-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--eioms-orange);
+  /* font-size: 10px; */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.eioms-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  align-items: stretch;
+  min-height: 540px;
+  padding: 52px max(40px, calc((100vw - 1180px) / 2));
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 6%, rgb(56 177 179 / 16%), transparent 38%),
+    var(--eioms-teal);
+  color: #fff;
+}
+
+.eioms-hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 510px;
+  padding: 8px 34px 8px 0;
+  animation: eioms-rise-in 650ms ease both;
+}
+
+.eioms-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  margin-bottom: 54px;
+  color: rgb(255 255 255 / 68%);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.eioms-back-link:hover {
+  color: #fff;
+}
+
+.eioms-back-link span {
+  color: var(--eioms-gold);
+  font-size: 16px;
+}
+
+.eioms-hero .eioms-eyebrow {
+  color: #e2ba6e;
+}
+
+.eioms-hero h1 {
+  max-width: 500px;
+  margin-bottom: 22px;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(38px, 4.3vw, 58px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.eioms-hero-copy > p {
+  max-width: 460px;
+  color: rgb(255 255 255 / 76%);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.eioms-hero-mantra {
+  max-width: 350px;
+  margin-top: 23px;
+  padding-left: 15px;
+  border-left: 1px solid var(--eioms-gold);
+  color: #e6c980;
+  font-family: var(--serif);
+  /* font-size: 13px; */
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.eioms-hero-image {
+  position: relative;
+  align-self: center;
+  height: 410px;
+  overflow: hidden;
+  animation: eioms-image-in 800ms ease 120ms both;
+}
+
+.eioms-hero-image::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(255 255 255 / 17%);
+  content: "";
+  pointer-events: none;
+}
+
+.eioms-hero-image img,
+.eioms-institute-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.eioms-hero-image:hover img,
+.eioms-institute-image:hover img {
+  transform: scale(1.025);
+}
+
+.eioms-image-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 17px;
+  z-index: 1;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.eioms-hero-index {
+  position: absolute;
+  right: max(40px, calc((100vw - 1180px) / 2));
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: rgb(255 255 255 / 48%);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+}
+
+.eioms-hero-index span:nth-child(2) {
+  width: 48px;
+  height: 1px;
+  background: var(--eioms-gold);
+}
+
+.eioms-resilience {
+  padding: 100px 0 90px;
+  background: var(--eioms-paper);
+}
+
+.eioms-resilience-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: 28px 12%;
+}
+
+.eioms-resilience-title h2,
+.eioms-section-heading h2,
+.eioms-institute-copy h2,
+.eioms-academy-grid h2,
+.eioms-expertise-title h2,
+.eioms-publications-intro h2 {
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.eioms-resilience-title h2 {
+  max-width: 490px;
+  font-size: clamp(30px, 3.5vw, 46px);
+  line-height: 1.12;
+}
+
+.eioms-resilience-copy {
+  padding-top: 30px;
+}
+
+.eioms-resilience-copy p,
+.eioms-institute-copy > p,
+.eioms-academy-copy p,
+.eioms-expertise-copy p {
+  margin-bottom: 15px;
+  color: var(--eioms-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.eioms-resilience-copy strong {
+  color: var(--eioms-ink);
+}
+
+.eioms-resilience-note {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 4px;
+  padding: 17px 20px;
+  border-left: 2px solid var(--eioms-teal);
+  background: #eff6f4;
+}
+
+.eioms-resilience-note > span {
+  color: var(--eioms-teal);
+  font-family: var(--serif);
+  font-size: 48px;
+  line-height: 0.7;
+}
+
+.eioms-resilience-note p {
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.eioms-institute {
+  padding-top: 26px;
+  background: #fff;
+}
+
+.eioms-institute-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 9%;
+}
+
+.eioms-institute-image {
+  position: relative;
+  height: clamp(300px, 37vw, 490px);
+  overflow: hidden;
+  background: #e9e6db;
+}
+
+.eioms-photo-index {
+  position: absolute;
+  left: 16px;
+  bottom: 15px;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 45%);
+}
+
+.eioms-institute-copy {
+  max-width: 400px;
+}
+
+.eioms-institute-copy h2 {
+  margin-bottom: 20px;
+  font-size: clamp(30px, 3.3vw, 42px);
+  line-height: 1.12;
+}
+
+.eioms-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  color: #21898c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.eioms-text-link svg {
+  transition: transform 180ms ease;
+}
+
+.eioms-text-link:hover svg {
+  transform: translateX(4px);
+}
+
+.eioms-purpose {
+  background: var(--eioms-sand);
+}
+
+.eioms-section-heading {
+  max-width: 720px;
+  margin-bottom: 42px;
+}
+
+.eioms-section-heading h2 {
+  max-width: 750px;
+  font-size: clamp(31px, 3.7vw, 46px);
+  line-height: 1.13;
+}
+
+.eioms-section-heading > p {
+  max-width: 650px;
+  margin-top: 15px;
+  color: var(--eioms-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.eioms-purpose-layout {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 8%;
+}
+
+.eioms-purpose-intro {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 20px 22px;
+  border: 1px solid rgb(22 35 42 / 9%);
+  background: rgb(255 255 255 / 56%);
+}
+
+.eioms-purpose-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid rgb(56 177 179 / 45%);
+  border-radius: 50%;
+  color: var(--eioms-teal);
+  font-family: var(--serif);
+  font-size: 24px;
+}
+
+.eioms-purpose-intro p {
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.eioms-purpose-list {
+  border-top: 1px solid rgb(22 35 42 / 14%);
+}
+
+.eioms-purpose-list li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 13px;
+  min-height: 61px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgb(22 35 42 / 11%);
+  color: #4f5e64;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.eioms-list-number {
+  color: #b18b46;
+  /* font-size: 9px; */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.eioms-list-arrow {
+  color: var(--eioms-teal);
+}
+
+.eioms-pillars {
+  background: #fff;
+}
+
+.eioms-pillars .eioms-section-heading {
+  margin-bottom: 34px;
+}
+
+.eioms-pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #e7e5dd;
+}
+
+.eioms-pillar-card {
+  position: relative;
+  min-height: 235px;
+  padding: 25px 24px 29px;
+  border-right: 1px solid #e7e5dd;
+  transition: background 180ms ease;
+}
+
+.eioms-pillar-card:last-child {
+  border-right: 0;
+}
+
+.eioms-pillar-card:hover {
+  background: #f5f9f7;
+}
+
+.eioms-pillar-number {
+  color: #b18b46;
+  /* font-size: 9px; */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.eioms-pillar-card h3 {
+  margin: 25px 0 11px;
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.eioms-pillar-card p {
+  color: var(--eioms-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.eioms-pillar-rule {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  left: 24px;
+  height: 1px;
+  background: #d7e9e5;
+}
+
+.eioms-platforms {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 90% 100%, rgb(56 177 179 / 14%), transparent 40%),
+    var(--eioms-teal);
+}
+
+.eioms-section-heading.is-light h2 {
+  color: #fff;
+}
+
+.eioms-platforms .eioms-section-heading {
+  max-width: 780px;
+}
+
+.eioms-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgb(255 255 255 / 14%);
+  border: 1px solid rgb(255 255 255 / 14%);
+}
+
+.eioms-platform-card {
+  position: relative;
+  display: flex;
+  min-height: 152px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: var(--eioms-teal);
+  transition: background 180ms ease;
+}
+
+.eioms-platform-card:hover {
+  background: #123a47;
+}
+
+.eioms-platform-card:nth-child(5) {
+  grid-column: 1 / 2;
+}
+
+.eioms-platform-index {
+  color: #e0bb74;
+  /* font-size: 9px; */
+  font-size: 14px;
+  letter-spacing: 0.14em;
+}
+
+.eioms-platform-card h3 {
+  max-width: 210px;
+  padding-right: 8px;
+  color: rgb(255 255 255 / 91%);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.eioms-platform-arrow {
+  position: absolute;
+  right: 19px;
+  bottom: 19px;
+  color: var(--eioms-teal);
+  font-size: 14px;
+}
+
+.eioms-programmes {
+  background: #fff;
+}
+
+.eioms-programme-table {
+  border-top: 1px solid #e9e6dc;
+}
+
+.eioms-programme-row {
+  display: grid;
+  grid-template-columns: 40px minmax(150px, 0.85fr) minmax(125px, 0.72fr) minmax(0, 1.8fr) 18px;
+  align-items: center;
+  gap: 18px;
+  min-height: 91px;
+  padding: 17px 4px;
+  border-bottom: 1px solid #e9e6dc;
+}
+
+.eioms-programme-index {
+  color: #b18b46;
+  /* font-size: 9px; */
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.eioms-programme-row h3 {
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.eioms-programme-partner {
+  color: #b18b46;
+  /* font-size: 8px; */
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.eioms-programme-row p {
+  color: var(--eioms-muted);
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.eioms-programme-arrow {
+  color: var(--eioms-teal);
+  font-size: 13px;
+}
+
+.eioms-programme-note {
+  margin-top: 15px;
+  color: #7d8586;
+  font-size: 9px;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.eioms-academy {
+  background: var(--eioms-sand);
+}
+
+.eioms-academy-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: 18px 10%;
+}
+
+.eioms-academy-grid h2 {
+  max-width: 480px;
+  font-size: clamp(30px, 3.5vw, 44px);
+  line-height: 1.12;
+}
+
+.eioms-academy-copy {
+  padding-top: 12px;
+}
+
+.eioms-learning-path {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 15px;
+  border: 1px solid #dfddd4;
+  background: rgb(255 255 255 / 55%);
+}
+
+.eioms-learning-step {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  /* justify-content: space-between; */
+  justify-content: center;
+  gap: 9px;
+  padding: 0 17px;
+  border-right: 1px solid #dfddd4;
+}
+
+.eioms-learning-step:last-child {
+  border-right: 0;
+}
+
+.eioms-learning-step span {
+  color: #b18b46;
+  /* font-size: 8px; */
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.eioms-learning-step strong {
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  /* font-size: 13px; */
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.eioms-expertise {
+  background: var(--eioms-paper);
+}
+
+.eioms-expertise-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 12%;
+}
+
+.eioms-expertise-title h2 {
+  max-width: 440px;
+  font-size: clamp(31px, 3.5vw, 45px);
+  line-height: 1.14;
+}
+
+.eioms-expertise-copy {
+  padding-top: 28px;
+}
+
+.eioms-expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 23px;
+}
+
+.eioms-expertise-tags span {
+  padding: 8px 11px;
+  border: 1px solid #dbe8e4;
+  color: #3e6666;
+  /* font-size: 9px; */
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.eioms-publications {
+  background: #fff;
+}
+
+.eioms-publications-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 12%;
+}
+
+.eioms-publications-intro h2 {
+  max-width: 400px;
+  margin-bottom: 15px;
+  font-size: clamp(30px, 3.3vw, 42px);
+  line-height: 1.12;
+}
+
+.eioms-publications-intro > p {
+  max-width: 340px;
+  color: var(--eioms-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.eioms-publication-list {
+  border-top: 1px solid #e9e6dc;
+}
+
+.eioms-publication-list li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 18px;
+  align-items: start;
+  gap: 13px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e9e6dc;
+}
+
+.eioms-publication-index {
+  padding-top: 3px;
+  color: #b18b46;
+  /* font-size: 9px; */
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.eioms-publication-list h3 {
+  margin-bottom: 8px;
+  color: var(--eioms-ink);
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.eioms-publication-list li > div > span {
+  color: #7d8586;
+  /* font-size: 8px; */
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eioms-publication-mark {
+  padding-top: 3px;
+  color: var(--eioms-teal);
+  font-size: 13px;
+}
+
+.eioms-closing {
+  position: relative;
+  display: flex;
+  min-height: 350px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 75px 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 110%, rgb(56 177 179 / 22%), transparent 55%),
+    var(--eioms-teal);
+  color: #fff;
+  text-align: center;
+}
+
+.eioms-closing-mark {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  /* color: rgb(255 255 255 / 3%); */
+  color: rgb(0 0 0 / 7%);
+  font-family: var(--serif);
+  font-size: clamp(110px, 25vw, 300px);
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.eioms-closing > *:not(.eioms-closing-mark) {
+  position: relative;
+}
+
+.eioms-closing .eioms-eyebrow {
+  color: #e2ba6e;
+}
+
+.eioms-closing h2 {
+  max-width: 670px;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+}
+
+.eioms-closing > p {
+  margin-top: 14px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.eioms-closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 24px;
+}
+
+.eioms-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 15px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.eioms-button-gold {
+  border: 1px solid var(--eioms-gold);
+  background: var(--eioms-gold);
+  color: var(--eioms-ink);
+}
+
+.eioms-button-gold:hover {
+  border-color: #e8c57b;
+  background: #e8c57b;
+}
+
+.eioms-button-outline {
+  border: 1px solid rgb(255 255 255 / 38%);
+  color: #fff;
+}
+
+.eioms-button-outline:hover {
+  border-color: var(--eioms-teal);
+  background: rgb(56 177 179 / 12%);
+}
+
+.eioms-page a:focus-visible {
+  outline: 2px solid var(--eioms-teal);
+  outline-offset: 4px;
+}
+
+@keyframes eioms-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes eioms-image-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .eioms-page main {
+    padding-top: 0;
+  }
+
+  .eioms-section {
+    /* padding: 76px 0; */
+    padding: 50px 0;
+  }
+
+  .eioms-section-inner {
+    width: min(100% - 48px, 680px);
+  }
+
+  .eioms-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    min-height: auto;
+    padding: 44px 24px 55px;
+  }
+
+  .eioms-hero-copy {
+    max-width: 640px;
+    padding: 0;
+  }
+
+  .eioms-back-link {
+    margin-bottom: 38px;
+  }
+
+  .eioms-hero h1 {
+    max-width: 600px;
+    font-size: clamp(42px, 8vw, 62px);
+  }
+
+  .eioms-hero-image {
+    width: 100%;
+    height: clamp(260px, 55vw, 420px);
+  }
+
+  .eioms-hero-index {
+    right: 24px;
+    bottom: 17px;
+  }
+
+  .eioms-resilience-grid,
+  .eioms-academy-grid,
+  .eioms-expertise-grid,
+  .eioms-publications-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 7%;
+  }
+
+  .eioms-resilience-copy,
+  .eioms-expertise-copy {
+    padding-top: 8px;
+  }
+
+  .eioms-resilience-note {
+    grid-column: 2;
+  }
+
+  .eioms-institute-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .eioms-institute-image {
+    height: clamp(280px, 55vw, 430px);
+  }
+
+  .eioms-institute-copy {
+    max-width: 620px;
+  }
+
+  .eioms-pillar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eioms-pillar-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .eioms-pillar-card:nth-child(-n + 2) {
+    border-bottom: 1px solid #e7e5dd;
+  }
+
+  .eioms-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .eioms-platform-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .eioms-programme-row {
+    grid-template-columns: 28px minmax(140px, 0.8fr) minmax(110px, 0.7fr) minmax(0, 1.5fr) 14px;
+    gap: 12px;
+  }
+
+  .eioms-learning-step {
+    padding: 0 10px;
+  }
+
+  .eioms-learning-step strong {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .eioms-section {
+    /* padding: 62px 0; */
+    padding: 40px 0;
+  }
+
+  .eioms-section-inner {
+    width: calc(100% - 40px);
+  }
+
+  .eioms-hero {
+    padding: 34px 20px 50px;
+  }
+
+  .eioms-back-link {
+    margin-bottom: 35px;
+    font-size: 8px;
+  }
+
+  .eioms-hero h1 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .eioms-hero-copy > p {
+    font-size: 12px;
+  }
+
+  .eioms-hero-image {
+    height: 250px;
+  }
+
+  .eioms-hero-index {
+    right: 20px;
+  }
+
+  .eioms-resilience-grid,
+  .eioms-academy-grid,
+  .eioms-expertise-grid,
+  .eioms-publications-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .eioms-resilience-copy,
+  .eioms-expertise-copy {
+    padding-top: 0;
+  }
+
+  .eioms-resilience-note {
+    grid-column: 1;
+  }
+
+  .eioms-institute {
+    padding-top: 0;
+  }
+
+  .eioms-institute-image {
+    height: 260px;
+  }
+
+  .eioms-section-heading {
+    margin-bottom: 30px;
+  }
+
+  .eioms-purpose-layout {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+
+  .eioms-purpose-intro {
+    padding: 16px;
+  }
+
+  .eioms-purpose-list li {
+    grid-template-columns: 27px minmax(0, 1fr) 14px;
+    gap: 9px;
+    font-size: 10px;
+  }
+
+  .eioms-pillar-card {
+    min-height: 210px;
+    padding: 20px 16px 28px;
+  }
+
+  .eioms-pillar-card h3 {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  .eioms-pillar-card p {
+    font-size: 9px;
+  }
+
+  .eioms-pillar-rule {
+    right: 16px;
+    left: 16px;
+  }
+
+  .eioms-platform-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eioms-platform-card {
+    min-height: 132px;
+    padding: 16px;
+  }
+
+  .eioms-platform-card h3 {
+    font-size: 14px;
+  }
+
+  .eioms-platform-arrow {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .eioms-programme-row {
+    grid-template-columns: 25px minmax(0, 1fr) 18px;
+    gap: 7px 10px;
+    padding: 16px 0;
+  }
+
+  .eioms-programme-index {
+    grid-row: 1 / span 2;
+  }
+
+  .eioms-programme-row h3 {
+    grid-column: 2;
+    font-size: 14px;
+  }
+
+  .eioms-programme-partner {
+    grid-column: 2;
+  }
+
+  .eioms-programme-row p {
+    grid-column: 2 / -1;
+    margin-top: 3px;
+    font-size: 10px;
+  }
+
+  .eioms-programme-arrow {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .eioms-learning-path {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
+
+  .eioms-learning-step {
+    min-height: 48px;
+    padding: 0 14px;
+    border-right: 0;
+    border-bottom: 1px solid #dfddd4;
+  }
+
+  .eioms-learning-step:last-child {
+    border-bottom: 0;
+  }
+
+  .eioms-learning-step strong {
+    /* flex: 1; */
+    font-size: 16px;
+  }
+
+  .eioms-publications-intro h2 {
+    max-width: 360px;
+  }
+
+  .eioms-closing {
+    min-height: 330px;
+    padding: 60px 20px;
+  }
+
+  .eioms-closing-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 300px;
+  }
+
+  
+  .eioms-pillar-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eioms-hero-copy,
+  .eioms-hero-image {
+    animation: none;
+  }
+
+  .eioms-hero-image img,
+  .eioms-institute-image img,
+  .eioms-text-link svg,
+  .eioms-pillar-card,
+  .eioms-platform-card,
+  .eioms-button {
+    transition: none;
+  }
+}
+
+/* Brighter accents, clearer copy and more tactile content cards. */
+.eioms-hero,
+.eioms-platforms,
+.eioms-closing {
+  background:
+    radial-gradient(ellipse at 82% 8%, rgb(255 255 255 / 16%), transparent 38%),
+    var(--eioms-teal);
+}
+
+.eioms-closing {
+  background:
+    radial-gradient(ellipse at 50% 110%, rgb(255 255 255 / 18%), transparent 55%),
+    var(--eioms-teal);
+}
+
+.eioms-hero .eioms-eyebrow,
+.eioms-closing .eioms-eyebrow {
+  width: fit-content;
+  padding: 6px 9px;
+  /* background: #fff; */
+  color: var(--eioms-orange);
+}
+
+.eioms-eyebrow {
+  color: var(--eioms-orange);
+}
+
+.eioms-hero-mantra {
+  color: #fff;
+  border-left-color: #fff;
+}
+
+.eioms-programme-partner {
+  color: var(--eioms-orange);
+}
+
+.eioms-page main p {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.eioms-purpose-list {
+  display: grid;
+  gap: 10px;
+  border-top: 0;
+}
+
+.eioms-purpose-list li {
+  min-height: 0;
+  padding: 16px 18px;
+  border: 1px solid #e7e5dd;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(22 35 42 / 4%);
+  font-size: 18px;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.eioms-purpose-list li:hover {
+  transform: translateX(4px);
+  border-color: rgb(56 177 179 / 55%);
+  box-shadow: 0 10px 24px rgb(22 35 42 / 9%);
+}
+
+.eioms-pillar-grid {
+  gap: 16px;
+  border: 0;
+}
+
+.eioms-pillar-card {
+  min-height: 260px;
+  overflow: hidden;
+  border: 1px solid #e7e5dd;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgb(22 35 42 / 6%);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.eioms-pillar-card:last-child {
+  border-right: 1px solid #e7e5dd;
+}
+
+.eioms-pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgb(56 177 179 / 55%);
+  background: #fff;
+  box-shadow: 0 16px 34px rgb(22 35 42 / 12%);
+}
+
+.eioms-pillar-card p {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.eioms-platform-grid {
+  gap: 14px;
+  background: transparent;
+  border: 0;
+}
+
+.eioms-platform-card {
+  min-height: 180px;
+  border: 1px solid rgb(255 255 255 / 68%);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(18 86 88 / 14%);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.eioms-platform-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--eioms-orange);
+  background: #fff;
+  box-shadow: 0 16px 32px rgb(18 86 88 / 22%);
+}
+
+.eioms-platform-index {
+  color: var(--eioms-orange);
+}
+
+.eioms-platform-card h3 {
+  color: var(--eioms-ink);
+  font-size: 18px;
+}
+
+.eioms-programme-table {
+  display: grid;
+  gap: 10px;
+  border-top: 0;
+}
+
+.eioms-programme-row {
+  min-height: 0;
+  padding: 20px 18px;
+  border: 1px solid #e9e6dc;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(22 35 42 / 4%);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.eioms-programme-row:hover {
+  transform: translateY(-3px);
+  border-color: rgb(56 177 179 / 55%);
+  box-shadow: 0 12px 26px rgb(22 35 42 / 9%);
+}
+
+.eioms-programme-row p {
+  font-size: 18px;
+}
+
+.eioms-programme-note {
+  /* font-size: 12px !important; */
+  font-size: 14px !important;
+}
+
+.eioms-learning-path {
+  gap: 10px;
+  border: 0;
+  background: transparent;
+}
+
+.eioms-learning-step {
+  min-height: 76px;
+  border: 1px solid #dfddd4;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(22 35 42 / 4%);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.eioms-learning-step:last-child {
+  border-right: 1px solid #dfddd4;
+}
+
+.eioms-learning-step:hover {
+  transform: translateY(-3px);
+  border-color: var(--eioms-teal);
+  box-shadow: 0 10px 22px rgb(22 35 42 / 9%);
+}
+
+.eioms-learning-step span {
+  color: var(--eioms-orange);
+}
+
+.eioms-expertise-tags span {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 3px 10px rgb(22 35 42 / 4%);
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.eioms-expertise-tags span:hover {
+  transform: translateY(-2px);
+  background: var(--eioms-teal);
+  color: #fff;
+}
+
+.eioms-publication-list {
+  display: grid;
+  gap: 10px;
+  border-top: 0;
+}
+
+.eioms-publication-list li {
+  align-items: center;
+  padding: 18px 16px;
+  border: 1px solid #e9e6dc;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgb(22 35 42 / 4%);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.eioms-publication-list li:hover {
+  transform: translateX(4px);
+  border-color: rgb(56 177 179 / 55%);
+  box-shadow: 0 12px 26px rgb(22 35 42 / 9%);
+}
+
+.eioms-publication-index {
+  color: var(--eioms-orange);
+}
+
+.eioms-publication-list h3 {
+  font-size: 18px;
+}
+
+.eioms-publication-mark {
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.eioms-publication-list li:hover .eioms-publication-mark {
+  transform: translate(2px, -2px);
+  color: var(--eioms-orange);
+}
+
+.eioms-resilience-note {
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 8px 22px rgb(22 35 42 / 6%);
+}
+
+.eioms-resilience-note p {
+  font-size: 18px;
+}
+
+.eioms-institute-image,
+.eioms-hero-image {
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgb(22 35 42 / 16%);
+}
+
+.eioms-institute-copy > p,
+.eioms-resilience-copy p,
+.eioms-academy-copy p,
+.eioms-expertise-copy p,
+.eioms-section-heading > p,
+.eioms-publications-intro > p,
+.eioms-hero-copy > p,
+.eioms-closing > p {
+  font-size: 18px;
+}
+
+.eioms-text-link {
+  color: var(--eioms-orange);
+}
+
+.eioms-button {
+  border-radius: 4px;
+  box-shadow: 0 5px 14px rgb(22 35 42 / 12%);
+}
+
+@media (max-width: 900px) {
+  .eioms-purpose-list li,
+  .eioms-pillar-card p,
+  .eioms-platform-card h3,
+  .eioms-programme-row p,
+  .eioms-publication-list h3,
+  .eioms-resilience-note p,
+  .eioms-institute-copy > p,
+  .eioms-resilience-copy p,
+  .eioms-academy-copy p,
+  .eioms-expertise-copy p,
+  .eioms-section-heading > p,
+  .eioms-publications-intro > p,
+  .eioms-hero-copy > p,
+  .eioms-closing > p {
+    font-size: 16px;
+  }
+
+  .eioms-pillar-card:nth-child(2) {
+    border-right: 1px solid #e7e5dd;
+  }
+
+  .eioms-pillar-card:nth-child(-n + 2) {
+    border-bottom: 1px solid #e7e5dd;
+  }
+
+  .eioms-pillar-grid {
+    gap: 12px;
+  }
+
+  .eioms-platform-grid {
+    gap: 12px;
+  }
+
+  /* .eioms-programme-row {
+    grid-template-columns: 28px minmax(140px, 0.8fr) minmax(110px, 0.7fr) minmax(0, 1.5fr) 14px;
+  } */
+
+  .eioms-learning-path {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .eioms-purpose-list li,
+  .eioms-pillar-card p,
+  .eioms-platform-card h3,
+  .eioms-programme-row p,
+  .eioms-publication-list h3,
+  .eioms-resilience-note p,
+  .eioms-institute-copy > p,
+  .eioms-resilience-copy p,
+  .eioms-academy-copy p,
+  .eioms-expertise-copy p,
+  .eioms-section-heading > p,
+  .eioms-publications-intro > p,
+  .eioms-hero-copy > p,
+  .eioms-closing > p {
+    font-size: 16px;
+  }
+
+  .eioms-purpose-list li {
+    padding: 14px;
+  }
+
+  .eioms-pillar-grid {
+    gap: 10px;
+  }
+
+  .eioms-pillar-card {
+    min-height: 250px;
+  }
+
+  .eioms-platform-grid {
+    gap: 9px;
+  }
+
+  .eioms-platform-card {
+    min-height: 158px;
+    padding: 14px;
+  }
+
+  .eioms-platform-card h3 {
+    font-size: 16px;
+  }
+
+  .eioms-programme-row {
+    padding: 15px 13px;
+  }
+
+  .eioms-learning-path {
+    gap: 7px;
+  }
+
+  .eioms-learning-step {
+    min-height: 50px;
+    border: 1px solid #dfddd4;
+  }
+
+  .eioms-learning-step:last-child {
+    border-right: 1px solid #dfddd4;
+  }
+
+  .eioms-publication-list li {
+    padding: 15px 12px;
+  }
+
+  .eioms-page main p {
+  font-size: 16px;
+  line-height: 1.75;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eioms-purpose-list li,
+  .eioms-pillar-card,
+  .eioms-platform-card,
+  .eioms-programme-row,
+  .eioms-learning-step,
+  .eioms-expertise-tags span,
+  .eioms-publication-list li,
+  .eioms-publication-mark,
+  .eioms-button {
+    transition: none;
+  }
+}
