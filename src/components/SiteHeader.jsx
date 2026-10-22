@@ -11,10 +11,10 @@ const businessWebsites = {
 };
 
 const countryWebsites = [
-  { name: "India", code: "in", href: "https://mridul.com" },
-  { name: "UAE", code: "ae", href: "https://mridul.com" },
-  { name: "Australia", code: "au", href: "https://mridul.com" },
-  { name: "USA", code: "us", href: "https://mridul.com" },
+  { name: "India", code: "in", href: "https://www.espererworld.com" },
+  { name: "UAE", code: "ae", href: "https://www.espererworld.com" },
+  { name: "Australia", code: "au", href: "https://www.espererworld.com" },
+  { name: "USA", code: "us", href: "https://www.espererworld.com" },
 ];
 
 const navLinks = [

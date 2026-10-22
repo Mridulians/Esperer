@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import SiteFooter from "../components/SiteFooter.jsx";
 import SiteHeader from "../components/SiteHeader.jsx";
-import eiomsBuildingEvening from "../assets/Eioms_1.jpg";
-import eiomsBuildingDay from "../assets/Eioms_2.jpg";
+import eiomsBuildingEvening from "../assets/Eioms_img.jpeg";
+import eiomsBuildingDay from "../assets/Eioms_img.jpeg";
 import "./EiomsPage.css";
 
 const purposeAreas = [
@@ -165,7 +165,7 @@ export default function EiomsPage({ businesses = [] }) {
               alt="EIOMS institute illuminated at dusk"
               fetchPriority="high"
             />
-            <span className="eioms-image-caption">Research. Education. Impact.</span>
+            {/* <span className="eioms-image-caption">Research. Education. Impact.</span> */}
           </div>
           {/* <div className="eioms-hero-index" aria-hidden="true">
             <span>01</span>
@@ -217,7 +217,7 @@ export default function EiomsPage({ businesses = [] }) {
                 alt="The EIOMS institute and its welcoming campus"
                 loading="lazy"
               />
-              <span className="eioms-photo-index">EIOMS · A PLACE FOR DISCOVERY</span>
+              {/* <span className="eioms-photo-index">EIOMS · A PLACE FOR DISCOVERY</span> */}
             </div>
             <div className="eioms-institute-copy">
               <span className="eioms-eyebrow">The institute</span>
